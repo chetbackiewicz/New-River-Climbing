@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import Areas from '../views/Areas.vue'
+import AreaInfo from '../views/AreaInfo.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -62,6 +63,22 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "/areas/:areaName",
+      name: "area-information",
+      component: AreaInfo,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/areas/:areaName/crags",
+      name: "crag-list-by-area",
+      component: AreaInfo,
+      meta: {
+        requiresAuth: false
+      }
+    }
   ]
 })
 

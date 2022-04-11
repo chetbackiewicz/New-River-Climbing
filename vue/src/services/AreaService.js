@@ -5,7 +5,7 @@ export default {
         return axios.get('/areas');
     },
 
-    getAreaByName(name) {
+    getAreaInformationByName(name) {
         return axios.get(`/areas/${name}`);
     }
 }

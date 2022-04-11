@@ -1,9 +1,9 @@
 <template>
   <div id="areas">
     <header>
-      <h1>Welcome to New River Gorge Guide</h1>
+      <h1>Welcome to the New River Gorge Guide</h1>
       <!-- Using a local computed property -->
-      <router-link v-if="isAdmin" v-bind:to="{ name:'area-add'}" tag="button" >Add Area</router-link>
+      <!-- <router-link v-if="isAdmin" v-bind:to="{ name:'area-add'}" tag="button" >Add Area</router-link> -->
       
       <!-- Using a VueX getter -->
       <!-- <router-link v-if="$store.getters.isAdmin" v-bind:to="{ name:'product-add'}" tag="button" >Add Product</router-link> -->
