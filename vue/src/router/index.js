@@ -71,14 +71,14 @@ const router = new Router({
         requiresAuth: false
       }
     },
-    {
-      path: "/areas/:areaName/crags",
-      name: "crag-list-by-area",
-      component: AreaInfo,
-      meta: {
-        requiresAuth: false
-      }
-    }
+    // {
+    //   path: "/areas/:areaName/crags",
+    //   name: "crag-list-by-area",
+    //   component: AreaInfo,
+    //   meta: {
+    //     requiresAuth: false
+    //   }
+    // }
   ]
 })
 
