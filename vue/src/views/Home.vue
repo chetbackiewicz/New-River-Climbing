@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>New River Gorge Guide</h1>
+    <h1>New River Gorge Guide Home</h1>
   </div>
 </template>
 
