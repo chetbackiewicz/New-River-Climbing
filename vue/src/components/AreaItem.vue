@@ -19,9 +19,14 @@ export default {
 
 <style>
 
+.area {
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
 button {
     display: inline-block;
-    width: 100%;
+    width: 50%;
     text-decoration: none;
 	font-size: 1.1em;
 	font-weight: bold;
@@ -37,6 +42,7 @@ button {
 	text-shadow: 0 -1px 0 #000;
 	box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);
 	cursor: pointer;
+
 }
 
 button:hover, button:focus

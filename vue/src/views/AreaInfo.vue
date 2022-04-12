@@ -30,11 +30,33 @@ export default {
         areaService.getAreaInformationByName(areaName)
         .then(response => {
             this.$store.commit('SET_AREA_INFO', response.data);
-        });
+        })
+        .catch(error => {
+         if (error.response) {
+           this.errorMsg = `Error returned from server.  Recieved ${error.response.status} ${error.response.statusText}`;
+         }
+         else if (error.request) {
+           this.errorMsg = 'Unable to connect to server';
+         }
+         else {
+           this.errorMsg = 'Unknown error';
+         }
+       });
         cragService.getCragsByAreaName(areaName)
         .then(response => {
             this.$store.commit('SET_CRAGS', response.data)
-        });
+        })
+        .catch(error => {
+         if (error.response) {
+           this.errorMsg = `Error returned from server.  Recieved ${error.response.status} ${error.response.statusText}`;
+         }
+         else if (error.request) {
+           this.errorMsg = 'Unable to connect to server';
+         }
+         else {
+           this.errorMsg = 'Unknown error';
+         }
+       });
     },
 }
 </script>
