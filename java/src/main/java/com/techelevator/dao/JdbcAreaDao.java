@@ -20,7 +20,7 @@ public class JdbcAreaDao implements AreaDao {
     @Override
     public List<Area> getAllAreas() {
         List<Area> areaList = new ArrayList<>();
-        String sql = "SELECT area_id, name, description, directions FROM areas";
+        String sql = "SELECT area_id, name, description, directions FROM areas ORDER BY name";
 
         SqlRowSet rows = jdbcTemplate.queryForRowSet(sql);
         while (rows.next()) {
