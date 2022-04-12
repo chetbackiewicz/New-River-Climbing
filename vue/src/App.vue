@@ -35,12 +35,14 @@ a:visited {
   color: white;
 }
 
+
 footer {
   padding: 10px;
   margin-top: 20px;
   background-color: rgb(228, 166, 104);
   border-width: 2px;
   border-color: black;
+  width: 100%;
 }
 
 </style>
