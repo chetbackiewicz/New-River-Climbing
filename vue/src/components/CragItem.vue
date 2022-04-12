@@ -1,8 +1,8 @@
 <template>
   <div class="crag">
-      <p>
+      <button>
           {{crag.name}}
-      </p>
+      </button>
   </div>
 </template>
 

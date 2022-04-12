@@ -1,9 +1,11 @@
 <template>
     <div class="area-info">
-        <h3 class="area-name">{{$store.state.areaInfo.name}}</h3>
-        <h4>Description</h4>
+        <header>
+        <h1 class="area-name">{{$store.state.areaInfo.name}}</h1>
+        </header>
+        <h3>Description</h3>
         <p>{{$store.state.areaInfo.description}}</p>
-        <h4>Directions</h4>
+        <h3>Directions</h3>
         <p>{{$store.state.areaInfo.directions}}</p>
         <div>
             <h3>List of Crags</h3>
@@ -38,5 +40,10 @@ export default {
 </script>
 
 <style>
+
+   .area-name {
+        display: flex;
+        background-color: rgb(228, 166, 104);
+    }
 
 </style>

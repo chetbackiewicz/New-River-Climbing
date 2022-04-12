@@ -1,7 +1,9 @@
 <template>
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
+      <header>
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+      </header>
       <div
         class="alert alert-danger"
         role="alert"
