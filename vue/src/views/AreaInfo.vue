@@ -44,7 +44,8 @@ export default {
        });
         cragService.getCragsByAreaName(areaName)
         .then(response => {
-            this.$store.commit('SET_CRAGS', response.data)
+            this.$store.commit('SET_CRAGS', response.data);
+            this.$store.commit('SET_CURRENT_AREA', areaName);
         })
         .catch(error => {
          if (error.response) {

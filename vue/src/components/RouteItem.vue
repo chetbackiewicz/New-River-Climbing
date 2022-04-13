@@ -1,27 +1,18 @@
 <template>
-  <div class="crag">
-      <router-link v-bind:to="{ name: 'crag-information', params: {areaName: $store.state.currentArea, cragName: crag.name}}">
-      <button v-on:click="setCragInformation()">
-          {{crag.name}}
-      </button>
-      </router-link>
+  <div class="route">
+      <button>{{route.name}}</button>
   </div>
 </template>
 
 <script>
 export default {
-    name: 'crag-item',
-    props: ['crag'],
-    methods: {
-        setCragInformation() {
-            this.$store.commit('SET_CRAG_INFO', this.crag);        }
-    }
+  name: 'route-item',
+  props: ['route']
 }
 </script>
 
 <style>
-
-.crag {
+.route {
 	padding-left: 2rem;
 	padding-right: 2rem;
 }

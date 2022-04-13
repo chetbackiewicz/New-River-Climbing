@@ -22,8 +22,10 @@ export default new Vuex.Store({
     user: currentUser || {},
     areas: [],
     crags: [],
+    routes: [],
     currentArea: '',
     areaInfo: [],
+    cragInfo: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -53,6 +55,12 @@ export default new Vuex.Store({
     },
     SET_CRAGS(state, crags) {
       state.crags = crags;
+    },
+    SET_ROUTES(state, routes) {
+      state.routes = routes;
+    },
+    SET_CRAG_INFO(state, crag) {
+      state.cragInfo = crag;
     }
   }
 })
