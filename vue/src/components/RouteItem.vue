@@ -1,6 +1,6 @@
 <template>
   <div class="route">
-      <button>{{route.name}}</button>
+      <button>{{route.name}} {{route.grade}} {{route.sport_trad}}</button>
   </div>
 </template>
 
