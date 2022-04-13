@@ -20,7 +20,7 @@ public class JdbcRouteDao implements RouteDao {
     @Override
     public List<Route> getRoutesByCragName(String cragName) {
         List<Route> routesByCrags = new ArrayList<>();
-        String sql = "SELECT routes.route_id, routes.name, routes.description, routes.grade, routes.height, routes.rating, routes.sport_trad, routes.has_anchors, routes.crag_id " +
+        String sql = "SELECT routes.route_id, routes.name, routes.description, routes.grade, routes.height, routes.rating, routes.sport_trad, routes.has_anchors, routes.crag_id, routes.bolt_count " +
                 "FROM routes " +
                 "JOIN crags ON routes.crag_id = crags.crag_id " +
                 "WHERE crags.name = ?";
@@ -46,6 +46,7 @@ public class JdbcRouteDao implements RouteDao {
         route.setSportTrad(row.getString("sport_trad"));
         route.setHasAnchors(row.getBoolean("has_anchors"));
         route.setCragId(row.getInt("crag_id"));
+        route.setBoltCount(row.getInt("bolt_count"));
 
         return route;
     }

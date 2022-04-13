@@ -17,6 +17,8 @@ public class Route {
     private boolean hasAnchors;
     @JsonProperty("crag_id")
     private int cragId;
+    @JsonProperty("bolt_count")
+    private int boltCount;
 
     public int getRouteId() {
         return routeId;
@@ -88,5 +90,13 @@ public class Route {
 
     public void setCragId(int cragId) {
         this.cragId = cragId;
+    }
+
+    public int getBoltCount() {
+        return boltCount;
+    }
+
+    public void setBoltCount(int boltCount) {
+        this.boltCount = boltCount;
     }
 }
