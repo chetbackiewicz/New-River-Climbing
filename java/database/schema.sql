@@ -119,19 +119,23 @@ This is an awesome place that stays cool during the summer, well, as cool as pos
 Seeps after rain for at least one full day.',
 																 'park at rogers take west trail and keep heading downhill to the west',
 																 2);		
-INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id) VALUES ('Lactic Acid Bath',
-																							  'big overhang slopers',
-																							  '5.12d',
-																							  70,
-																							   4,
-																							  'S',
-																							  TRUE,
-																								1);		
-INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id) VALUES ('Blood Raid',
-																							  'big overhang slopers with dyno',
-																							  '5.13a',
-																							  70,
-																							   4,
-																							  'S',
-																							  TRUE,
-																								1);													
+INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id) VALUES ('Against the Grain', 'Scramble up onto a ledge at the far left end of the cave and climb the relatively short line of bolts through the steep roof. This uncharacteristic power problem requires less endurance than the other routes but has some tough moves with bad feet.', 
+																									   '5.13b', 50, 2, 'S',TRUE, 1);		
+INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id) VALUES ('Mojo Hand', 'Scramble up onto a ledge at the far left end of the cave. Clip the shared first bolt with Against the Grain, then traverse right to the second. Crawl out a flat ceiling to a stance in a corner. Exit the corner to the right and engage the powerful finish.',
+																										'5.12d', 60, 3, 'S', TRUE, 1);
+INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id) VALUES ('Devil Doll', 'Climb Lactic Acid Bath to the fifth bolt. Instead of moving rout out the underclings, keep heading left on slopers to a little perch on an arete. Finish with some powerful moves on small holds to the Mojo Hand anchor.', 
+																									   '5.12d', 60, 3, 'S', TRUE, 1);
+INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id) VALUES ('In the Flat Field', 'The toughest rig in The Hole. Climb Lactic Acid Bath through the undercling traverse, but instead of bailing to the kneebar rest, head up and left on slopers to the flattest stretch of ceiling in the cave. Rail out the huge flake to a boulder problem pulling onto the face.', 
+																									   '5.13c', 70, 3, 'S', TRUE, 1);
+INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id) VALUES ('Massacre', 'If you get to the anchors of Lactic Acid Bath and still have some juice, take one step left and take on a final boulder problem to the high anchors.', 
+																									   '5.13a', 80, 2, 'S', TRUE, 1);
+INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id) VALUES ('Lactic Acid Bath', 'The first line established in The Hole is an undisputed classic. Scramble up to a perch, then pump out the line of flakes past a pistol-grip clip, a campus move, and a quick shake before the crux. Chug out right on the undercling rail that will have your biceps working like the connecting rods of a locomotive. A kneebar rest, backhand slap, and some more pumping pulls take you to the anchors.',
+																									   '5.12d', 70, 4, 'S', TRUE, 1);
+INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id) VALUES ('Blood Raid', 'Cruise up some chossy rock to a ledge, then thud out the gong shaped flake in the flat ceiling. Pull up onto the vertical face to some crimps and a tough clip at the final roof. A final showdown full-bore throw at the peak of pump guards the anchors to this excellent line.',
+																									   '5.13a', 60, 4, 'S', TRUE, 1);
+INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id) VALUES ('Yowsah', 'This linkup is onw of the most trafficked routes in The Hole due to its relatively easy grade although it''s still a tough haul! Climb Burning Cross to a good shake under the second roof. Travwerse left a bit under the roof, pull over it at the jug horn, then rail and heel-hook left to the anchors.',
+																										'5.12b', 60, 3, 'S', TRUE, 1);
+INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id) VALUES ('Burning Cross', 'This rarely done but excellent line has some of the best moves in The Hole. Start at a right-facing corner near the right end of the steepest part of the cave. Climb to a ledge, reach out to a massive incut rail, and cut your feet. Climb out the jugs to a good shake under the second roof. Pull the roof direct and go straight up to independent anchors.',
+																									   '5.13a', 70, 3, 'S', TRUE, 1);
+
+
