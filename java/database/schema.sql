@@ -61,8 +61,8 @@ CREATE TABLE activity_logs (
 	route_comments varchar(5000),
 	
 	CONSTRAINT PK_activity_logs PRIMARY KEY (activity_log_id),
-	CONSTRAINT PK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
-	CONSTRAINT PK_route_id FOREIGN KEY (route_id) REFERENCES routes(route_id)
+	CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
+	CONSTRAINT FK_route_id FOREIGN KEY (route_id) REFERENCES routes(route_id)
 );
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');

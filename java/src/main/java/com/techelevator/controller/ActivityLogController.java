@@ -22,4 +22,8 @@ public class ActivityLogController {
         return activityLogDao.getActivityLogsByUserId(userId);
     }
 
+    @RequestMapping(path="/{userId}/activity-log", method = RequestMethod.POST)
+    public ActivityLog addActivityLog(@RequestBody ActivityLog activityLog) {
+        return activityLogDao.addActivityLog(activityLog);
+    }
 }

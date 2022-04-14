@@ -35,8 +35,13 @@ public class JdbcActivityLogDao implements ActivityLogDao{
     }
 
     @Override
-    public void addActivityLog(ActivityLog activityLog) {
-
+    public ActivityLog addActivityLog(ActivityLog activityLog) {
+        String sql = "INSERT INTO activity_logs(user_id, route_id, attempts, date_sent, route_comments) " +
+                "VALUES (?, ?, ?, ?, ?) RETURNING activity_log_id";
+        Integer logId = jdbcTemplate.queryForObject(sql, Integer.class, activityLog.getUserId(), activityLog.getRouteId(),
+                activityLog.getAttempts(), activityLog.getDateSent(), activityLog.getComments());
+        activityLog.setLogId(logId);
+        return activityLog;
     }
 
     private ActivityLog mapRowToActivityLog(SqlRowSet row) {
