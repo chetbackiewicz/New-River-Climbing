@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import Areas from '../views/Areas.vue'
 import AreaInfo from '../views/AreaInfo.vue'
 import CragInfo from '../views/CragInfo.vue'
+import ClimbingLog from '../views/ClimbingLog.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -78,6 +79,14 @@ const router = new Router({
       component: CragInfo,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: "/:userId/activity-log",
+      name: "climbing-log",
+      component: ClimbingLog,
+      meta: {
+        requireAuth: false
       }
     }
   ]
