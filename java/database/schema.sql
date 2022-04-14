@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS users, areas, crags, routes, activity_log;
+DROP TABLE IF EXISTS activity_logs, users, areas, crags, routes;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
 CREATE SEQUENCE seq_user_id
@@ -18,7 +18,7 @@ CREATE TABLE users (
 
 CREATE TABLE areas (
 	area_id serial,
-	name varchar(100) NOT NULL UNIQUE,
+	area_name varchar(100) NOT NULL UNIQUE,
 	description varchar(5000),
 	directions varchar(5000),
 	
@@ -27,7 +27,7 @@ CREATE TABLE areas (
 
 CREATE TABLE crags (
 	crag_id serial,
-	name varchar(100) not NULL,
+	crag_name varchar(100) not NULL,
 	description varchar(5000),
 	directions varchar(5000),
 	area_id int,
@@ -38,7 +38,7 @@ CREATE TABLE crags (
 
 CREATE TABLE routes (
 	route_id serial,
-	name varchar(50) not null,
+	route_name varchar(50) not null,
 	description varchar(1000),
 	grade varchar(5),
 	height int,
@@ -67,7 +67,7 @@ CREATE TABLE activity_logs (
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
-INSERT INTO areas (name, description, directions) VALUES ('Beauty Mountain', 
+INSERT INTO areas (area_name, description, directions) VALUES ('Beauty Mountain', 
 														  'Another amazing sector of the New River Gorge, with a great lineup of sport and trad climbs of all grades. There''s great bouldering here, too.  Sub-areas are listed climber''s left-to-right (downstream to upstream).',
 														 'From Route 19, drive along the Lansing-Edmond Road past the two parking lots for Endless Wall.  The distance from 19 to Beauty Mtn Rd is almost exactly 2.5 miles.   About 3/5 of a mile past the Nuttal Parking lot, look for the gravel Beauty Mountain Road heading right. Drive about 100 yards off the pavement to a sort of open intersection (this is where old parking was). Take a left, and in a couple seconds you''ll see the parking with a pit toilet off on your right.
 
@@ -75,16 +75,16 @@ Follow the obvious trail from this parking, passing a house and a gate.  Past th
 
 If you continue down this main gravel road, you''ll wind up at the Nuttalburg Mine Site, one of the best-preserved mining ruins in the area. It''s totally worth the trip!
 ');
-INSERT INTO areas (name, description, directions) VALUES ('Kaymoor', 
+INSERT INTO areas (area_name, description, directions) VALUES ('Kaymoor', 
 														  'Amazing collection of sport routes on the rim with Northern exposure directly across from Diamond Point. Lots of steep routes, big holds and shady summer days make this area a favorite of summer Rock Climbing guides, Raft guides and locals alike.
 Important to know: this area is shady and stays wet after rain for at least a day.',
 														 'Take Route 16 out of Fayetteville, taking a left on the Gatewood Rd., just as Rt. 16 veers right. Drive through some windy curves, eventually taking a left on the Kaymoor Rd (signs may point to Kaymoor or Arrowhead Trails).');
-INSERT INTO areas (name, description, directions) VALUES ('Bridge Area',
+INSERT INTO areas (area_name, description, directions) VALUES ('Bridge Area',
 														 'Most instant satisfaction crags in the New River Gorge. Also, this area was among the first developed by early New River Gorge climbers. Many Climbers planning a day out will start off meeting here, then make plans.
 
 Some great rainy day routes can be found here as the all of the crags have a southern aspect.',
 														 'Park at obvious pullout under the New River Gorge Bridge (heading north on rt 19 take three rights after crossing Bridge)');
-INSERT INTO areas (name, description, directions) VALUES ('Bubba City',
+INSERT INTO areas (area_name, description, directions) VALUES ('Bubba City',
 														 'This area is on the North/East side of the Gorge, and most cliffs get morning shade and afternoon sun.
 
 Many climbers consider "Bubba Shitty" to be the worst area of the New River Gorge, due to shorter clifflines, chossier, more broken rock, and easier climbs that are short and climb chossy, broken rock. There are without a doubt some gems here, and crags like Sandstonia are popular with mixed groups of beginners and strongmen for good reason. Enjoy the new approach trail, courtesy of NRAC!',
@@ -93,10 +93,10 @@ Many climbers consider "Bubba Shitty" to be the worst area of the New River Gorg
 For access to Rubble Rock, Sandstonia/Tattoo Wall, and Kingfish, use the Good Luck Cemetary parking on the left, approximately 1.7 miles from Route 19.  Once you''re parked, you''ll see the giant powerline cut.  Follow that and signs to get to your destination crag.
 
 For all the other crags, from Little Head Wall to Beer Wall are best accessed from the Bubba City Parking, which you can find on your right, approximately 1.5 miles from Route 19, and is about 2/10 of a mile past Peregrine Ridge Rd.  Cross the street and take the marked trail, following signs.You have reached the Bubba City area after climbing down a ladder and a rope.');
-INSERT INTO areas (name, description, directions) VALUES ('Cotton Hill',
+INSERT INTO areas (area_name, description, directions) VALUES ('Cotton Hill',
 														 'This is one of the farthest-downstream crags of the NRG; several miles below Bubba City, and below Hawk''s Nest Dam on the New. It''s home to a number of good sport routes; Psycho Wrangler, 5.12a, is not to be missed. If this area has seen rain recently, especially a heavy rain, expect to have some runoff, particularly the vertical wall right of Psycho Wrangler.  Many of the routes stay wet for a couple days on this wall after a heavy rain. Contrary to semantic nitpicking by some people with too much time on their hands, this area is part of the NRG Proper despite being cut off from the Greater Endless Wall cliffband.',
 														 'From Fayetteville, drive north on 16 for 7 miles until you hit a bridge that crosses over the New River, just below the Hawk''s Nest Dam. The parking is immediately on the right after crossing the bridge.');
-INSERT INTO areas (name, description, directions) VALUES ('Endless Wall',
+INSERT INTO areas (area_name, description, directions) VALUES ('Endless Wall',
 														 'This is the crown jewel of all the crags on the New River. With nearly 3 miles of unbroken cliff (and nearly six if you include greater Endless Wall from Ambassador to Keeney''s Buttress), breathtaking views, and as much exposure as you can get on a single pitch off the ground, it''s easy to spend several days in a row here, or a season, or a lifetime. There is everything from glorious 100 foot bolted moderates to classic gear lines to modern sport and trad testpieces requiring mutant strength.  Spring and Fall are the best seasons here, but it''s possible to get great conditions at the Cirque in January, or Aesthetica area during August.  The only thing this place lacks is an abundance of easy bolted lines-- to get the most out of Endless, you''ll want to be solid on 5.10 trad and 5.11+ sport.
 
 Since the Endless Wall Trail has been voted #1 hiking trail in a U.S. national park, it''s been getting a lot of traffic. With this traffic come more issues, especially with parking. If you park along the road and your tires are touching the asphalt then you will get towed! Get there early to get a spot in one of the lots, and carpool if possible.',
@@ -109,7 +109,7 @@ From the Nuttall parking you will walk through the hemlock forest, cross the bri
 Roughly equidistant between the Fern Point and Cirque ladders is another set-- Honeymooner''s ladders. Going down this set of ladders puts you dead in the middle (and arguably the most quality section) of Endless Wall at Snake Buttress.
 
 As you get more familiar with the approaches to Endless, you''ll find that there are also a few convenient rappel stations that facilitate getting to a few areas a bit quicker. They are mentioned in more detail (with pictures) in the Williams guidebook, and are generally easy to find off of the approach trail.');
-INSERT INTO areas (name, description, directions) VALUES ('Fern Buttress',
+INSERT INTO areas (area_name, description, directions) VALUES ('Fern Buttress',
 														 'This area is a huge downstream portion of Endless Wall, just like Beauty Mountain is the farthest upstream section.  Whatever its designation, there is amazing sport and trad here, from 5.5 to 5.14, and it features the same quality Nuttal Sandstone that makes Endless Wall great.
 
 Sub-areas are listed from climber''s left-to-right, or downstream-to-upstream.',
@@ -118,13 +118,13 @@ Sub-areas are listed from climber''s left-to-right, or downstream-to-upstream.',
 First, you can park in the obvious pull off on Fayette Station Road. For any of the crags from Arm Forces area to Orchard Wall, this is the best way in. Walk slightly up the road to a wide old dirt path that goes downhill, eventually taking a sharp right into the woods. After crossing a small creek, do NOT keep following the creek down into the gorge. Keep heading on the trail until you see cliffline.
 
 For access to the Fern Creek Falls area to Ritz Cracker area, you can park in the Fern Creek parking area off Lansing Edmond Rd. Take the Endless wall trail in heading toward Fern Creek. When you get to the Bridge, you can either cross the bridge and continue to the Fern Creek ladders (which will actually spit you out on the opposite side of Fern Creek- at the beginning of Endless Wall) or you can hang a right at the bridge, skirt the lip of the cliff on a trail, and rap in. There is usually a makeshift rappel station on the tree above the 5.8 crack route Night Moves.');
-INSERT INTO crags (name, description, directions, area_id) VALUES ('The Hole',
+INSERT INTO crags (crag_name, description, directions, area_id) VALUES ('The Hole',
 																  'This is a fun collection of steep sport routes and linkups, and has the shortest approach of the Kaymoor crags.  Although it is very sheltered from rainfall, for some reason The Hole tends to seep and sweat more than the Cirque or the Coliseum.
 
 Note: the Hole (along with the Cirque) is one of the few areas within the New River Gorge in which perma/project draws are accepted, even though they are still technically not legal anywhere within park boundaries. Take care in inspecting fixed gear.',
 																  'Park at Rogers take east trail down towards old coal mines',
 																  2);
-INSERT INTO crags (name, description, directions, area_id) VALUES ('Butcher''s Branch',
+INSERT INTO crags (crag_name, description, directions, area_id) VALUES ('Butcher''s Branch',
 																 'Collection of sports climbs 5.9-5.13-
 This crag holds climbs for every sport climber. There are super pumpy 10s long 5.9s, and super classic 11+s, 12s, and 13s.
 
@@ -133,23 +133,23 @@ This is an awesome place that stays cool during the summer, well, as cool as pos
 Seeps after rain for at least one full day.',
 																 'park at rogers take west trail and keep heading downhill to the west',
 																 2);		
-INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Against the Grain', 'Scramble up onto a ledge at the far left end of the cave and climb the relatively short line of bolts through the steep roof. This uncharacteristic power problem requires less endurance than the other routes but has some tough moves with bad feet.', 
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Against the Grain', 'Scramble up onto a ledge at the far left end of the cave and climb the relatively short line of bolts through the steep roof. This uncharacteristic power problem requires less endurance than the other routes but has some tough moves with bad feet.', 
 																									   '5.13b', 50, 2, 'S',TRUE, 1, 6);		
-INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Mojo Hand', 'Scramble up onto a ledge at the far left end of the cave. Clip the shared first bolt with Against the Grain, then traverse right to the second. Crawl out a flat ceiling to a stance in a corner. Exit the corner to the right and engage the powerful finish.',
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Mojo Hand', 'Scramble up onto a ledge at the far left end of the cave. Clip the shared first bolt with Against the Grain, then traverse right to the second. Crawl out a flat ceiling to a stance in a corner. Exit the corner to the right and engage the powerful finish.',
 																										'5.12d', 60, 3, 'S', TRUE, 1, 8);
-INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Devil Doll', 'Climb Lactic Acid Bath to the fifth bolt. Instead of moving rout out the underclings, keep heading left on slopers to a little perch on an arete. Finish with some powerful moves on small holds to the Mojo Hand anchor.', 
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Devil Doll', 'Climb Lactic Acid Bath to the fifth bolt. Instead of moving rout out the underclings, keep heading left on slopers to a little perch on an arete. Finish with some powerful moves on small holds to the Mojo Hand anchor.', 
 																									   '5.12d', 60, 3, 'S', TRUE, 1, 8);
-INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('In the Flat Field', 'The toughest rig in The Hole. Climb Lactic Acid Bath through the undercling traverse, but instead of bailing to the kneebar rest, head up and left on slopers to the flattest stretch of ceiling in the cave. Rail out the huge flake to a boulder problem pulling onto the face.', 
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('In the Flat Field', 'The toughest rig in The Hole. Climb Lactic Acid Bath through the undercling traverse, but instead of bailing to the kneebar rest, head up and left on slopers to the flattest stretch of ceiling in the cave. Rail out the huge flake to a boulder problem pulling onto the face.', 
 																									   '5.13c', 70, 3, 'S', TRUE, 1, 10);
-INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Massacre', 'If you get to the anchors of Lactic Acid Bath and still have some juice, take one step left and take on a final boulder problem to the high anchors.', 
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Massacre', 'If you get to the anchors of Lactic Acid Bath and still have some juice, take one step left and take on a final boulder problem to the high anchors.', 
 																									   '5.13a', 80, 2, 'S', TRUE, 1, 10);
-INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Lactic Acid Bath', 'The first line established in The Hole is an undisputed classic. Scramble up to a perch, then pump out the line of flakes past a pistol-grip clip, a campus move, and a quick shake before the crux. Chug out right on the undercling rail that will have your biceps working like the connecting rods of a locomotive. A kneebar rest, backhand slap, and some more pumping pulls take you to the anchors.',
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Lactic Acid Bath', 'The first line established in The Hole is an undisputed classic. Scramble up to a perch, then pump out the line of flakes past a pistol-grip clip, a campus move, and a quick shake before the crux. Chug out right on the undercling rail that will have your biceps working like the connecting rods of a locomotive. A kneebar rest, backhand slap, and some more pumping pulls take you to the anchors.',
 																									   '5.12d', 70, 4, 'S', TRUE, 1, 9);
-INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Blood Raid', 'Cruise up some chossy rock to a ledge, then thud out the gong shaped flake in the flat ceiling. Pull up onto the vertical face to some crimps and a tough clip at the final roof. A final showdown full-bore throw at the peak of pump guards the anchors to this excellent line.',
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Blood Raid', 'Cruise up some chossy rock to a ledge, then thud out the gong shaped flake in the flat ceiling. Pull up onto the vertical face to some crimps and a tough clip at the final roof. A final showdown full-bore throw at the peak of pump guards the anchors to this excellent line.',
 																									   '5.13a', 60, 4, 'S', TRUE, 1, 7);
-INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Yowsah', 'This linkup is onw of the most trafficked routes in The Hole due to its relatively easy grade although it''s still a tough haul! Climb Burning Cross to a good shake under the second roof. Travwerse left a bit under the roof, pull over it at the jug horn, then rail and heel-hook left to the anchors.',
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Yowsah', 'This linkup is onw of the most trafficked routes in The Hole due to its relatively easy grade although it''s still a tough haul! Climb Burning Cross to a good shake under the second roof. Travwerse left a bit under the roof, pull over it at the jug horn, then rail and heel-hook left to the anchors.',
 																										'5.12b', 60, 3, 'S', TRUE, 1, 7);
-INSERT INTO routes (name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Burning Cross', 'This rarely done but excellent line has some of the best moves in The Hole. Start at a right-facing corner near the right end of the steepest part of the cave. Climb to a ledge, reach out to a massive incut rail, and cut your feet. Climb out the jugs to a good shake under the second roof. Pull the roof direct and go straight up to independent anchors.',
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Burning Cross', 'This rarely done but excellent line has some of the best moves in The Hole. Start at a right-facing corner near the right end of the steepest part of the cave. Climb to a ledge, reach out to a massive incut rail, and cut your feet. Climb out the jugs to a good shake under the second roof. Pull the roof direct and go straight up to independent anchors.',
 																									   '5.13a', 70, 3, 'S', TRUE, 1, 7);
 
 
