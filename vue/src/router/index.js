@@ -8,6 +8,7 @@ import Areas from '../views/Areas.vue'
 import AreaInfo from '../views/AreaInfo.vue'
 import CragInfo from '../views/CragInfo.vue'
 import ClimbingLog from '../views/ClimbingLog.vue'
+import RouteInfo from '../views/RouteInfo.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -87,6 +88,14 @@ const router = new Router({
       component: ClimbingLog,
       meta: {
         requireAuth: false
+      }
+      },
+      {
+      path:"/areas/:areaName/crags/:cragName/routes/:routeName",
+      name: "route-information",
+      component: RouteInfo,
+      meta: {
+        requiresAuth: false
       }
     }
   ]

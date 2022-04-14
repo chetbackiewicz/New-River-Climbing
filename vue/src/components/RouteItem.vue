@@ -1,6 +1,8 @@
 <template>
   <div class="route">
-      <button>{{route.route_name}} {{route.grade}} {{route.sport_trad}}</button>
+	<router-link v-bind:to="{ name: 'route-information', params: {areaName: $store.state.currentArea, cragName: $store.state.cragInfo.crag_name, routeName: route.route_name}}">
+      <button >{{route.route_name}} {{route.grade}} {{route.sport_trad}}</button>
+	</router-link>
   </div>
 </template>
 

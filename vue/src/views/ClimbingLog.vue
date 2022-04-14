@@ -1,11 +1,13 @@
 <template>
   <div id="climbing-log">
       <header>
-          Climbing Log
+          <h1>
+            Climbing Log
+          </h1>
+          <h3 id="your-climbs">Your Climbs</h3>
       </header>
   
     <main>
-        <h3>Your Climbs</h3>
         <log-list />
     </main>
   </div>
@@ -32,5 +34,7 @@ export default {
 </script>
 
 <style>
-
+#your-climbs {
+    text-align: center;
+}
 </style>

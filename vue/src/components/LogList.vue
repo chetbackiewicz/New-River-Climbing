@@ -38,9 +38,15 @@ export default {
 </script>
 
 <style>
+
+.activity-log {
+    display: flex;
+    justify-content: center;
+}
+
 table {
   font-family: 'Open Sans', sans-serif;
-  width: 750px;
+  width: 80%;
   border-collapse: collapse;
   border: 3px solid #44475C;
   margin: 10px 10px 0 10px;

@@ -131,8 +131,9 @@ This crag holds climbs for every sport climber. There are super pumpy 10s long 5
 This is an awesome place that stays cool during the summer, well, as cool as possible.
 
 Seeps after rain for at least one full day.',
-																 'park at rogers take west trail and keep heading downhill to the west',
-																 2);		
+																 'park at rogers take west trail and keep heading downhill to the west', 2);
+																 
+	
 INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Against the Grain', 'Scramble up onto a ledge at the far left end of the cave and climb the relatively short line of bolts through the steep roof. This uncharacteristic power problem requires less endurance than the other routes but has some tough moves with bad feet.', 
 																									   '5.13b', 50, 2, 'S',TRUE, 1, 6);		
 INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Mojo Hand', 'Scramble up onto a ledge at the far left end of the cave. Clip the shared first bolt with Against the Grain, then traverse right to the second. Crawl out a flat ceiling to a stance in a corner. Exit the corner to the right and engage the powerful finish.',
@@ -147,10 +148,10 @@ INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, 
 																									   '5.12d', 70, 4, 'S', TRUE, 1, 9);
 INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Blood Raid', 'Cruise up some chossy rock to a ledge, then thud out the gong shaped flake in the flat ceiling. Pull up onto the vertical face to some crimps and a tough clip at the final roof. A final showdown full-bore throw at the peak of pump guards the anchors to this excellent line.',
 																									   '5.13a', 60, 4, 'S', TRUE, 1, 7);
-INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Yowsah', 'This linkup is onw of the most trafficked routes in The Hole due to its relatively easy grade although it''s still a tough haul! Climb Burning Cross to a good shake under the second roof. Travwerse left a bit under the roof, pull over it at the jug horn, then rail and heel-hook left to the anchors.',
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Yowsah', 'This linkup is one of the most trafficked routes in The Hole due to its relatively easy grade although it''s still a tough haul! Climb Burning Cross to a good shake under the second roof. Travwerse left a bit under the roof, pull over it at the jug horn, then rail and heel-hook left to the anchors.',
 																										'5.12b', 60, 3, 'S', TRUE, 1, 7);
-INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Burning Cross', 'This rarely done but excellent line has some of the best moves in The Hole. Start at a right-facing corner near the right end of the steepest part of the cave. Climb to a ledge, reach out to a massive incut rail, and cut your feet. Climb out the jugs to a good shake under the second roof. Pull the roof direct and go straight up to independent anchors.',
-																									   '5.13a', 70, 3, 'S', TRUE, 1, 7);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Burning Choss', 'This rarely done but excellent line has some of the best moves in The Hole. Start at a right-facing corner near the right end of the steepest part of the cave. Climb to a ledge, reach out to a massive incut rail, and cut your feet. Climb out the jugs to a good shake under the second roof. Pull the roof direct and go straight up to independent anchors.',
+																										'5.13a', 70, 3, 'S', TRUE, 1, 7);
 
 
 

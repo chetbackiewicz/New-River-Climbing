@@ -14,7 +14,8 @@ export default {
     props: ['crag'],
     methods: {
         setCragInformation() {
-            this.$store.commit('SET_CRAG_INFO', this.crag);        }
+            this.$store.commit('SET_CRAG_INFO', this.crag);        
+			}
     }
 }
 </script>
