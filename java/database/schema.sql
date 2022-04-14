@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS users, areas, crags, routes;
+DROP TABLE IF EXISTS users, areas, crags, routes, activity_log;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
 CREATE SEQUENCE seq_user_id
@@ -50,6 +50,19 @@ CREATE TABLE routes (
 	
 	CONSTRAINT PK_route_id PRIMARY KEY (route_id),
 	CONSTRAINT FK_crag_id FOREIGN KEY (crag_id) REFERENCES crags(crag_id)
+);
+
+CREATE TABLE activity_logs (
+	activity_log_id serial,
+	user_id int,
+	route_id int,
+	attempts int,
+	date_sent date,
+	route_comments varchar(5000),
+	
+	CONSTRAINT PK_activity_logs PRIMARY KEY (activity_log_id),
+	CONSTRAINT PK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
+	CONSTRAINT PK_route_id FOREIGN KEY (route_id) REFERENCES routes(route_id)
 );
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');

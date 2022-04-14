@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Crag {
     @JsonProperty("crag_id")
     private int cragId;
-    @JsonProperty("name")
+    @JsonProperty("crag_name")
     private String cragName;
     private String description;
     private String directions;

@@ -20,10 +20,10 @@ public class JdbcRouteDao implements RouteDao {
     @Override
     public List<Route> getRoutesByCragName(String cragName) {
         List<Route> routesByCrags = new ArrayList<>();
-        String sql = "SELECT routes.route_id, routes.name, routes.description, routes.grade, routes.height, routes.rating, routes.sport_trad, routes.has_anchors, routes.crag_id, routes.bolt_count " +
+        String sql = "SELECT routes.route_id, routes.route_name, routes.description, routes.grade, routes.height, routes.rating, routes.sport_trad, routes.has_anchors, routes.crag_id, routes.bolt_count " +
                 "FROM routes " +
                 "JOIN crags ON routes.crag_id = crags.crag_id " +
-                "WHERE crags.name = ?";
+                "WHERE crags.crag_name = ?";
 
         SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, cragName);
 
@@ -38,7 +38,7 @@ public class JdbcRouteDao implements RouteDao {
     private Route mapRowToRoute(SqlRowSet row) {
         Route route = new Route();
         route.setRouteId(row.getInt("route_id"));
-        route.setRouteName(row.getString("name"));
+        route.setRouteName(row.getString("route_name"));
         route.setDescription(row.getString("description"));
         route.setGrade(row.getString("grade"));
         route.setHeight(row.getInt("height"));

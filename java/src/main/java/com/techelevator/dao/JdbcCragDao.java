@@ -26,9 +26,9 @@ public class JdbcCragDao implements CragDao{
     @Override
     public List<Crag> getCragsByAreaName(String areaName) {
         List<Crag> cragsByArea = new ArrayList<>();
-        String sql = "SELECT crags.name, crags.crag_id, crags.description, crags.directions, crags.area_id FROM areas " +
+        String sql = "SELECT crags.crag_name, crags.crag_id, crags.description, crags.directions, crags.area_id FROM areas " +
                 "JOIN crags ON areas.area_id = crags.area_id " +
-                "WHERE areas.name = ?";
+                "WHERE areas.area_name = ?";
         SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, areaName);
         while (rows.next()) {
             Crag crag = mapRowToCrag(rows);
@@ -40,7 +40,7 @@ public class JdbcCragDao implements CragDao{
     private Crag mapRowToCrag(SqlRowSet row) {
         Crag crag = new Crag();
         crag.setCragId(row.getInt("crag_id"));
-        crag.setCragName(row.getString("name"));
+        crag.setCragName(row.getString("crag_name"));
         crag.setDescription(row.getString("description"));
         crag.setDirections(row.getString("directions"));
         crag.setAreaId(row.getInt("area_id"));

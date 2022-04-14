@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Route {
     @JsonProperty("route_id")
     private int routeId;
-    @JsonProperty("name")
+    @JsonProperty("route_name")
     private String routeName;
     private String description;
     private String grade;

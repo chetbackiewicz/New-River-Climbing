@@ -1,7 +1,7 @@
 <template>
     <div class="area">
-        <router-link v-bind:to="{ name: 'area-information', params: {areaName: area.name}}">
-            <button>{{area.name}}</button>
+        <router-link v-bind:to="{ name: 'area-information', params: {areaName: area.area_name}}">
+            <button>{{area.area_name}}</button>
         </router-link>
     </div>
 
