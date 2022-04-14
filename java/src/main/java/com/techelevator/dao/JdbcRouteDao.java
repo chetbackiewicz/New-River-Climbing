@@ -39,7 +39,7 @@ public class JdbcRouteDao implements RouteDao {
     public Route getRouteByName(String routeName) {
         Route route = new Route();
 
-        String sql = "SELECT route_id, name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count FROM routes WHERE name = ?";
+        String sql = "SELECT route_id, route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count FROM routes WHERE route_name = ?";
 
         SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, routeName);
 
