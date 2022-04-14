@@ -1,13 +1,20 @@
 <template>
   <div class="route">
+	<!-- <router-link v-bind:to="{ name: 'route-information', params: {areaName: $store.state.currentArea, cragName: crag.name, routeName: route.name}}"> -->
       <button>{{route.name}} {{route.grade}} {{route.sport_trad}}</button>
+	<!-- </router-link> -->
   </div>
 </template>
 
 <script>
 export default {
   name: 'route-item',
-  props: ['route']
+  props: ['route'],
+  methods: {
+	// setRouteInformation() {
+	// 	this.$store.commit('SET_ROUTE_INFO', this.route);
+	// }
+  }
 }
 </script>
 

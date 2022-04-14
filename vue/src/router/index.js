@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import Areas from '../views/Areas.vue'
 import AreaInfo from '../views/AreaInfo.vue'
 import CragInfo from '../views/CragInfo.vue'
+import RouteInfo from '../views/RouteInfo.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -76,6 +77,14 @@ const router = new Router({
       path: "/areas/:areaName/crags/:cragName/routes",
       name: "crag-information",
       component: CragInfo,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path:"/areas/:areaName/crags/:cragName/routes/:routeName",
+      name: "route-information",
+      component: RouteInfo,
       meta: {
         requiresAuth: false
       }

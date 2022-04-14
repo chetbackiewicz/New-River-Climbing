@@ -20,4 +20,9 @@ public class RouteController {
     public List<Route> getRoutesByCrag(@PathVariable String areaName, @PathVariable String cragName) {
         return routeDao.getRoutesByCragName(cragName);
     }
+
+    @RequestMapping(path="/areas/{areaName}/crags/{cragName}/routes/{routeName}", method = RequestMethod.GET)
+    public Route getRouteByName(@PathVariable String areaName, @PathVariable String cragName, @PathVariable String routeName) {
+        return routeDao.getRouteByName(routeName);
+    }
 }

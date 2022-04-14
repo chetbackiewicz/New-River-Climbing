@@ -49,7 +49,7 @@ export default {
         })
         .catch(error => {
          if (error.response) {
-           this.errorMsg = `Error returned from server.  Recieved ${error.response.status} ${error.response.statusText}`;
+           this.errorMsg = `Error returned from server.  Received ${error.response.status} ${error.response.statusText}`;
          }
          else if (error.request) {
            this.errorMsg = 'Unable to connect to server';
