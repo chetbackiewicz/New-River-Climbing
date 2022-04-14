@@ -1,7 +1,7 @@
 <template>
     <div class="area-info">
         <header>
-        <h1 class="area-name">{{$store.state.areaInfo.name}}</h1>
+        <h1 class="area-name">{{$store.state.areaInfo.area_name}}</h1>
         </header>
         <h3>Description</h3>
         <p>{{$store.state.areaInfo.description}}</p>

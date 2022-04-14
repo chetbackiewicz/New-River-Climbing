@@ -1,8 +1,8 @@
 <template>
   <div class="crag">
-      <router-link v-bind:to="{ name: 'crag-information', params: {areaName: $store.state.currentArea, cragName: crag.name}}">
+      <router-link v-bind:to="{ name: 'crag-information', params: {areaName: $store.state.currentArea, cragName: crag.crag_name}}">
       <button v-on:click="setCragInformation()">
-          {{crag.name}}
+          {{crag.crag_name}}
       </button>
       </router-link>
   </div>

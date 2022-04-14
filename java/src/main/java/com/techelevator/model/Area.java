@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Area {
     @JsonProperty("area_id")
     private int areaId;
-    @JsonProperty("name")
+    @JsonProperty("area_name")
     private String areaName;
     private String description;
     private String directions;

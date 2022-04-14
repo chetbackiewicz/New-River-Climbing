@@ -2,7 +2,7 @@
   <div class="crag-info">
       <header>
           <h1 class="crag-name">
-              {{$store.state.cragInfo.name}}
+              {{$store.state.cragInfo.crag_name}}
           </h1>
       </header>
       <h3>

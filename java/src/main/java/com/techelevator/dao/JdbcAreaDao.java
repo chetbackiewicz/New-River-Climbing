@@ -20,7 +20,7 @@ public class JdbcAreaDao implements AreaDao {
     @Override
     public List<Area> getAllAreas() {
         List<Area> areaList = new ArrayList<>();
-        String sql = "SELECT area_id, name, description, directions FROM areas ORDER BY name";
+        String sql = "SELECT area_id, area_name, description, directions FROM areas ORDER BY area_name";
 
         SqlRowSet rows = jdbcTemplate.queryForRowSet(sql);
         while (rows.next()) {
@@ -33,7 +33,7 @@ public class JdbcAreaDao implements AreaDao {
     @Override
     public Area getAreaByName(String name) {
         Area area = new Area();
-        String sql = "SELECT area_id, name, description, directions FROM areas WHERE name = ?";
+        String sql = "SELECT area_id, area_name, description, directions FROM areas WHERE area_name = ?";
 
         SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, name);
         if (rows.next()) {
@@ -45,7 +45,7 @@ public class JdbcAreaDao implements AreaDao {
     private Area mapRowToArea(SqlRowSet rows) {
         Area area = new Area();
         area.setAreaId(rows.getInt("area_id"));
-        area.setAreaName(rows.getString("name"));
+        area.setAreaName(rows.getString("area_name"));
         area.setDescription(rows.getString("description"));
         area.setDirections(rows.getString("directions"));
         return area;
