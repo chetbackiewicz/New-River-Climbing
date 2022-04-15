@@ -1,20 +1,20 @@
 <template>
   <div class="log-form">
       <form v-on:submit.prevent="addLog">
+          <div id="form-title">Add To MyClimbs</div>
           <div class="form-field">
-              <label for="date-sent">Date Sent:</label>
-              <Datepicker v-model="newLog.date_sent" format="yyyy-MM-dd"></Datepicker>
+              <Datepicker id="date-sent" placeholder="Date First Sent" v-model="newLog.date_sent" format="yyyy-MM-dd"></Datepicker>
           </div>
           <div class="form-field">
-              <label for="attempts">Attempts:</label>
-              <input type="number" step="1" id="attempts" v-model.number="newLog.attempts">
+              <input type="number" placeholder= "Number of Attempts" step="1" id="attempts" v-model.number="newLog.attempts">
           </div>
           <div class="form-field">
-              <label for="comments">Comments:</label>
-              <input type="text" id="comments" v-model.trim="newLog.route_comments">
+              <!-- <input type="text" placeholder="Comments" id="comments" v-model="newLog.route_comments"> -->
+               <textarea type="text" id="comments" placeholder="Write a comment" v-model="newLog.route_comments"></textarea>
           </div>
           <div class="form-field">
-              <input type="submit" v-on:click="setLogInfo">
+              <input id="submit" type="submit" v-on:click="setLogInfo">
+              <!-- <button id="submit" v-on:click="setLogInfo" type="submit">Submit</button> -->
           </div>
         </form>
   </div>
@@ -34,7 +34,7 @@ export default {
             newLog: {
                 user_id: null,
                 route_id: null,
-                date_sent:null,
+                date_sent: null
             }
         }
     },
@@ -50,13 +50,90 @@ export default {
         setLogInfo() {
             this.newLog.user_id = this.$store.state.user.id
             this.newLog.route_id = this.$store.state.routeInfo.route_id
-        }
+        },
+    //     sortTable(col) {
+    //         this.rows.sort(function(a, b) {
+    //             if (a[col] > b[col]) {
+    //             return 1;
+    //             } else if (a[col] < b[col]) {
+    //             return  -1;
+    //             }
+    //             return 0;
+    //   })
+    // }
     }
-    
 
 }
 </script>
 
 <style>
+
+.log-form {
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    padding: 1rem;
+    width: 60%;
+}
+
+#submit {
+  border: none;
+  color: black;
+  border-radius: 25px;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+#submit:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+#form-title {
+    font-family: Arial, Helvetica, sans-serif;;
+}
+
+#comments {
+  width: 90%;
+  height: 100px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+
+#comments[type-text]:focus {
+    border: 3px solid #555;
+}
+
+#attempts {
+  width: 40%;
+  height: 30px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+#date-sent {
+  width: 40%;
+  height: 30px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
 
 </style>

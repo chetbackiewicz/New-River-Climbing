@@ -8,7 +8,7 @@
       </header>
   
     <main>
-        <log-list />
+        <log-list id="log-list" />
     </main>
   </div>
 </template>
@@ -36,5 +36,9 @@ export default {
 <style>
 #your-climbs {
     text-align: center;
+}
+
+#log-list {
+    margin: 5rem;
 }
 </style>

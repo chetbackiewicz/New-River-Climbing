@@ -5,41 +5,46 @@
           {{$store.state.routeInfo.route_name}} {{$store.state.routeInfo.grade}}
         </h1>
       </header>
-      <div id="route-info">
-        <!-- <img :src="require('../assets/route-images/' + $store.state.routeInfo.route_name + '.jpg')" @error="imgError()"> -->
-        <img v-bind:src="require('../assets/route-images/' + $store.state.routeInfo.route_name + '.jpg')"/>
-        <h3>
-        Rating:
-         <img class = "star-img" src="../assets/star.png" alt="Number of stars" v-for="star in numberOfStars" v-bind:key="star.id">
-      </h3>
-      </div>
-      <div class="type">
-        <h3>
-        Type:
-      </h3>
-      <p v-if="$store.state.routeInfo.sport_trad == 'S'">Sport</p>
-      <p v-else>Trad</p>
-      </div>
-      <div class="height">
-         <h3>
-        Height:
-      </h3>
-      <p>{{$store.state.routeInfo.height}} ft</p>
-      </div>
-      <div class="protection">
-        <h3>Protection:</h3>
-        <p class="bolts">{{$store.state.routeInfo.bolt_count}} bolts,</p>
-        <p v-if="$store.state.routeInfo.has_anchors == true" class="anchors">bolt anchors</p>
-        <p v-else>No Anchors</p>
-      </div>
-      <div class="route-description">
-        <h3>
-        Description 
-      </h3>
-      <p>{{$store.state.routeInfo.description}}</p>
-      </div>
-      <div>
-        <log-form />
+      <div class="top-of-page-display">
+        <div id="route-information">
+          <div id="rating">
+          <h3>
+          Rating:
+          <img class = "star-img" src="../assets/star.png" alt="Number of stars" v-for="star in numberOfStars" v-bind:key="star.id">
+          </h3>
+          </div>
+          <div class="type">
+            <h3>
+            Type:
+          </h3>
+          <p v-if="$store.state.routeInfo.sport_trad == 'S'">Sport</p>
+          <p v-else>Trad</p>
+          </div>
+          <div class="height">
+            <h3>
+            Height:
+          </h3>
+          <p>{{$store.state.routeInfo.height}} ft</p>
+          </div>
+          <div class="protection">
+            <h3>Protection:</h3>
+            <p class="bolts">{{$store.state.routeInfo.bolt_count}} bolts,</p>
+            <p v-if="$store.state.routeInfo.has_anchors == true" class="anchors">bolt anchors</p>
+            <p v-else>No Anchors</p>
+          </div>
+          <div class="route-description">
+            <h3>
+            Description 
+          </h3>
+          <p>{{$store.state.routeInfo.description}}</p>
+          </div>
+        </div>
+        <div id="log-form">
+          <log-form />
+        </div>
+        <div id="img-container">
+        <img id="climb-img" v-bind:src="require('../assets/route-images/' + $store.state.routeInfo.route_name + '.jpg')"/>
+        </div>
       </div>
         <route-item />
   </div>
@@ -88,6 +93,26 @@ export default {
 
 <style>
 
+.top-of-page-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 
+  "route-information img log-form";
+}
+
+#route-information {
+  grid-area: route-information;
+  padding-top: 2rem;
+}
+
+#log-form {
+  grid-area: log-form;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .star-img {
   height: 1em;
 }
@@ -126,7 +151,22 @@ export default {
 
 .route-description {
   display: block;
-  max-width: 50%;
 }
 
+#climb-img {
+  grid-area: img;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-radius: 25px;
+  margin-top: 2rem;
+  align-items: center;
+}
+
+#img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>
