@@ -7,6 +7,7 @@
                   <th>Route Name</th>
                   <th>Crag Name</th>
                   <th>Area Name</th>
+                  <th>Attempts</th>
                   <th>Date Sent</th>
                   <th>Comments</th>
               </tr>
@@ -16,6 +17,7 @@
                 <td>{{log.route_name}}</td>
                 <td>{{log.crag_name}}</td>
                 <td>{{log.area_name}}</td>
+                <td>{{log.attempts}}</td>
                 <td>{{log.date_sent}}</td>
                 <td>{{log.route_comments}}</td>
               </tr>

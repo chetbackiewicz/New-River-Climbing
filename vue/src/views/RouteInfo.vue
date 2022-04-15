@@ -37,9 +37,7 @@
       <p>{{$store.state.routeInfo.description}}</p>
       </div>
       <div>
-        <form action="">
-          
-        </form>
+        <log-form />
       </div>
         <route-item />
   </div>
@@ -49,11 +47,13 @@
 
 import RouteItem from '@/components/RouteItem'
 import routeService from '@/services/RouteService'
+import LogForm from '@/components/LogForm'
 
 export default {
   name: 'route-information',
   components: {
-    RouteItem
+    RouteItem,
+    LogForm
   },
   computed: {
     numberOfStars() {

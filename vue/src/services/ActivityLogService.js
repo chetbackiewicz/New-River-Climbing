@@ -5,7 +5,7 @@ export default {
         return axios.get(`/${userId}/activity-log`);
     },
 
-    addActivityLog(log, userId) {
+    addActivityLog(userId, log) {
         return axios.post(`/${userId}/activity-log`, log);
     }
 }
