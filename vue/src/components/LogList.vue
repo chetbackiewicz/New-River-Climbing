@@ -50,14 +50,14 @@ table {
   font-family: 'Open Sans', sans-serif;
   width: 80%;
   border-collapse: collapse;
-  border: 3px solid #44475C;
+  border: 3px solid rgb(197, 128, 0);
   margin: 10px 10px 0 10px;
 }
 
 table th {
   text-transform: uppercase;
   text-align: left;
-  background: #44475C;
+  background: rgb(197, 128, 0);
   color: #FFF;
   padding: 8px;
   min-width: 30px;
@@ -66,12 +66,12 @@ table th {
 table td {
   text-align: left;
   padding: 8px;
-  border-right: 2px solid #7D82A8;
+  border-right: 2px solid #b88933;
 }
 table td:last-child {
   border-right: none;
 }
 table tbody tr:nth-child(2n) td {
-  background: #D4D8F9;
+  background: #f1cbab;
 }
 </style>
