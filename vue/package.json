@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.9.1",
+    "datepicker": "^0.0.0",
     "vue": "^2.6.12",
     "vue-router": "^3.5.1",
     "vuejs-datepicker": "^1.6.2",

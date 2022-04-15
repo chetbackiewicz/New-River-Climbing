@@ -6,6 +6,8 @@
         </h1>
       </header>
       <div id="route-info">
+        <!-- <img :src="require('../assets/route-images/' + $store.state.routeInfo.route_name + '.jpg')" @error="imgError()"> -->
+        <img v-bind:src="require('../assets/route-images/' + $store.state.routeInfo.route_name + '.jpg')"/>
         <h3>
         Rating:
          <img class = "star-img" src="../assets/star.png" alt="Number of stars" v-for="star in numberOfStars" v-bind:key="star.id">
@@ -55,6 +57,16 @@ export default {
     RouteItem,
     LogForm
   },
+  // data() {
+  //   return {
+  //     defaultImg: require('../assets/star.png')
+  //   }
+  // },
+  // methods: {
+  //   imgError() {
+  //     this.src =this.defaultImg;
+  //   }
+  // },
   computed: {
     numberOfStars() {
       return (this.$store.state.routeInfo.rating);
@@ -116,9 +128,5 @@ export default {
   display: block;
   max-width: 50%;
 }
-
-
-
-
 
 </style>
