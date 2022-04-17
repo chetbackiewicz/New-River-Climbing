@@ -4,6 +4,7 @@
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{name: 'areas'}">Areas</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{name: 'climbing-log', params: {userId: $store.state.user.id}}">MyClimbs</router-link>&nbsp;|&nbsp;
+      <router-link v-bind:to="{name: 'search'}">Find Routes</router-link>
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
       <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
     </div>

@@ -53,7 +53,7 @@ public class JdbcRouteDao implements RouteDao {
      @Override
      public List<Route> getAllRoutes() {
         List<Route> allRoutes = new ArrayList<>();
-        String sql = "SELECT route_id route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count FROM routes";
+        String sql = "SELECT route_id, route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count FROM routes";
 
         SqlRowSet rows = jdbcTemplate.queryForRowSet(sql);
 

@@ -62,16 +62,6 @@ export default {
     RouteItem,
     LogForm
   },
-  // data() {
-  //   return {
-  //     defaultImg: require('../assets/star.png')
-  //   }
-  // },
-  // methods: {
-  //   imgError() {
-  //     this.src =this.defaultImg;
-  //   }
-  // },
   computed: {
     numberOfStars() {
       return (this.$store.state.routeInfo.rating);
@@ -103,6 +93,7 @@ export default {
 #route-information {
   grid-area: route-information;
   padding-top: 2rem;
+  margin-left: 2rem;
 }
 
 #log-form {
@@ -158,7 +149,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  height: 600px;
   border-radius: 25px;
   margin-top: 2rem;
   align-items: center;

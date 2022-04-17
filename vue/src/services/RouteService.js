@@ -7,5 +7,9 @@ export default {
 
     getRouteByRouteName(areaName, cragName, routeName) {
         return axios.get(`/areas/${areaName}/crags/${cragName}/routes/${routeName}`);
+    },
+
+    getAllRoutes() {
+        return axios.get('/search');
     }
 }

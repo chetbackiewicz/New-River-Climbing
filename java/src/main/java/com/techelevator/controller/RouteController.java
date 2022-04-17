@@ -26,8 +26,8 @@ public class RouteController {
         return routeDao.getRouteByName(routeName);
     }
 
-    @RequestMapping(path = "/routes", method = RequestMethod.GET)
-    public List<Route> getRoutesByGrade() {
+    @RequestMapping(path = "/search", method = RequestMethod.GET)
+    public List<Route> getAllRoutes() {
         return routeDao.getAllRoutes();
     }
 }

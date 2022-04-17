@@ -25,4 +25,11 @@ export default {
 
 <style>
 
+.routes {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
 </style>

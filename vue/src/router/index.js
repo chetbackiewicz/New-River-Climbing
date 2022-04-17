@@ -9,6 +9,7 @@ import AreaInfo from '../views/AreaInfo.vue'
 import CragInfo from '../views/CragInfo.vue'
 import ClimbingLog from '../views/ClimbingLog.vue'
 import RouteInfo from '../views/RouteInfo.vue'
+import Search from '../views/Search.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -94,6 +95,14 @@ const router = new Router({
       path:"/areas/:areaName/crags/:cragName/routes/:routeName",
       name: "route-information",
       component: RouteInfo,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path:"/search",
+      name: "search",
+      component: Search,
       meta: {
         requiresAuth: false
       }

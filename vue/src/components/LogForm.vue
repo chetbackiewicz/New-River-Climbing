@@ -42,25 +42,15 @@ export default {
         addLog() {
             activityLogService.addActivityLog(this.newLog.user_id, this.newLog)
             .then(() => {
-                alert("Added to MyClimbs")
-                console.log(this.newLog)
+                this.$router.push({name: 'climbing-log', params: {userId: this.newLog.user_id}});
                 this.newLog = [];
+                // alert("Added to MyClimbs")                
             })
         },
         setLogInfo() {
             this.newLog.user_id = this.$store.state.user.id
             this.newLog.route_id = this.$store.state.routeInfo.route_id
         },
-    //     sortTable(col) {
-    //         this.rows.sort(function(a, b) {
-    //             if (a[col] > b[col]) {
-    //             return 1;
-    //             } else if (a[col] < b[col]) {
-    //             return  -1;
-    //             }
-    //             return 0;
-    //   })
-    // }
     }
 
 }
@@ -113,7 +103,7 @@ export default {
 }
 
 #attempts {
-  width: 40%;
+  width: 90%;
   height: 30px;
   margin-top: 12px;
   margin-bottom: 12px;
@@ -125,7 +115,7 @@ export default {
 }
 
 #date-sent {
-  width: 40%;
+  width: 90%;
   height: 30px;
   margin-top: 12px;
   margin-bottom: 12px;
