@@ -62,7 +62,7 @@ export default {
 
 .current-weather {
     grid-area: current-weather;
-    border: 2px solid #ccc;
+    /* border: 2px solid #ccc; */
     border-radius: 25px;
     margin: 5px;
     background-image: linear-gradient(skyblue, white);

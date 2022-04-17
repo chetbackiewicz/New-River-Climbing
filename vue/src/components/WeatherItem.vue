@@ -4,14 +4,17 @@
         <div id="icon">
           <img id="weatherImg" :src=getIcon />
       </div>
+      <div id="day">
+          {{getDayOfWeek(daily.dt)}}
+      </div>
       <div id="forecast">
           {{daily.weather[0].description}}<br>
       </div>
       <div id="high-temp">
-          High: {{getRoundedTemp(daily.temp.max)}}°F
+          H: {{getRoundedTemp(daily.temp.max)}}°
       </div>
       <div id="low-temp">
-          Low: {{getRoundedTemp(daily.temp.min)}}°F
+          L: {{getRoundedTemp(daily.temp.min)}}°
       </div>
       </div>
   </div>
@@ -24,7 +27,11 @@ export default {
     methods: {
         getRoundedTemp(temp) {
             return Math.round(temp);
-        }
+        },
+        getDayOfWeek(dt) {
+            const date = new Date(dt*1000);
+            return date.toLocaleString("en-US", {weekday: "long"});
+        },
     },
     computed: {
         getIcon() {
@@ -36,7 +43,7 @@ export default {
 
 <style>
 .daily-weather {
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-radius: 25px;
     margin: 5px;
     background-image: linear-gradient(skyblue, white);
