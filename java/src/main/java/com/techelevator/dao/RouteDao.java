@@ -10,4 +10,6 @@ public interface RouteDao {
 
     Route getRouteByName(String routeName);
 
+    List<Route> getAllRoutes();
+
 }
