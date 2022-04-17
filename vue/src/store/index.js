@@ -20,6 +20,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
+    weatherInfo: {},
     areas: [],
     crags: [],
     routes: [],
@@ -69,6 +70,9 @@ export default new Vuex.Store({
     },
     SET_ROUTE_INFO(state, route) {
       state.routeInfo = route;
+    },
+    SET_WEATHER_INFO(state, weather) {
+      state.weatherInfo = weather;
     }
   }
 })
