@@ -1,7 +1,13 @@
 <template>
   <div class="home">
     <h1>New River Gorge Guide Home</h1>
+<<<<<<< HEAD
+    <div  id="map">
+      <iframe src="https://www.google.com/maps/d/embed?mid=1vEtPPeF_gw3tBivLNxUV2ALDUZjhx7pf&ehbc=2E312F" width="640" height="480"></iframe>
+    </div>
+=======
     <weather-forecast />
+>>>>>>> 89b4ac9f768512917410178d11cad72a44063c5d
   </div>
 </template>
 
@@ -21,4 +27,23 @@ export default {
 };
 </script>
 
+<<<<<<< HEAD
+<style>
 
+#map {
+  display: flex;
+  padding-left: 1rem;
+}
+
+iframe {
+  border-radius: 25px;
+}
+
+
+
+
+
+</style>
+=======
+
+>>>>>>> 89b4ac9f768512917410178d11cad72a44063c5d
