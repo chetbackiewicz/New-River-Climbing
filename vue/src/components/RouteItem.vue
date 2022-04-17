@@ -1,6 +1,6 @@
 <template>
   <div class="route">
-	<router-link v-bind:to="{ name: 'route-information', params: {areaName: $store.state.currentArea, cragName: $store.state.cragInfo.crag_name, routeName: route.route_name}}">
+	<router-link v-bind:to="{ name: 'route-info', params: {routeName: route.route_name}}">
       <!-- <button >{{route.route_name}} {{route.grade}} {{route.sport_trad}}</button> -->
 	<div class="card">
 		<img id="card-img" v-bind:src="require('../assets/route-images/' + route.route_name + '.jpg')">

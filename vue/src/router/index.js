@@ -91,9 +91,17 @@ const router = new Router({
         requireAuth: false
       }
       },
-      {
-      path:"/areas/:areaName/crags/:cragName/routes/:routeName",
-      name: "route-information",
+    //   {
+    //   path:"/areas/:areaName/crags/:cragName/routes/:routeName",
+    //   name: "route-information",
+    //   component: RouteInfo,
+    //   meta: {
+    //     requiresAuth: false
+    //   }
+    // },
+    {
+      path:"/routes/:routeName",
+      name: "route-info",
       component: RouteInfo,
       meta: {
         requiresAuth: false

@@ -57,7 +57,7 @@ import routeService from '@/services/RouteService'
 import LogForm from '@/components/LogForm'
 
 export default {
-  name: 'route-information',
+  name: 'route-info',
   components: {
     RouteItem,
     LogForm
@@ -69,10 +69,10 @@ export default {
 
   },
   created() {
-    const areaName = this.$route.params.areaName;
-    const cragName = this.$route.params.cragName;
+    // const areaName = this.$route.params.areaName;
+    // const cragName = this.$route.params.cragName;
     const routeName = this.$route.params.routeName;
-    routeService.getRouteByRouteName(areaName, cragName, routeName)
+    routeService.getRoute(routeName)
     .then(response => {
       this.$store.commit('SET_ROUTE_INFO', response.data);
     })
