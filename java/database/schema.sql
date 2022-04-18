@@ -133,8 +133,12 @@ This is an awesome place that stays cool during the summer, well, as cool as pos
 Seeps after rain for at least one full day.',
 																 'park at rogers take west trail and keep heading downhill to the west', 2);
 																 
+<<<<<<< HEAD
 													
 																 
+=======
+INSERT INTO crags (crag_name, description, directions, area_id) VALUES ('Wild Seed Area', '5.11 and 5.12 trad and sport lines can be found at this crag that provides quality, scary routes, and shade. Definitly a worthwhile stop if you are cragging at Fern Buttress.', 'Continue past Conditioning Wall East to find this wall.', 7);																 
+>>>>>>> d6630aa108101655f4b048fadb88a800d6207361
 	
 INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Against the Grain', 'Scramble up onto a ledge at the far left end of the cave and climb the relatively short line of bolts through the steep roof. This uncharacteristic power problem requires less endurance than the other routes but has some tough moves with bad feet.', 
 																									   '5.13b', 50, 2, 'S',TRUE, 1, 6);		
@@ -154,6 +158,7 @@ INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, 
 																										'5.12b', 60, 3, 'S', TRUE, 1, 7);
 INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Burning Choss', 'This rarely done but excellent line has some of the best moves in The Hole. Start at a right-facing corner near the right end of the steepest part of the cave. Climb to a ledge, reach out to a massive incut rail, and cut your feet. Climb out the jugs to a good shake under the second roof. Pull the roof direct and go straight up to independent anchors.',
 																										'5.13a', 70, 3, 'S', TRUE, 1, 7);
+<<<<<<< HEAD
 INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('The Green Piece', 'The originally green rock of this nice face has cleaned up into one of the most popular routes in the gorge. After bolting this climb alone, Gus was so psyched to send that he cast off solo. Upon reaching the anchor, he realized he had forgotten his rappel device and barley survived the hand-over-hand descent down his fixed line!', 
 																														 '5.10b', 70, 3, 'S', TRUE, 2, 6);
 INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Low Voltage', 'Begin from the terrace and climb up to a crack near the first bolt. The face above has good holds but is steep enough to get you pumped.',
@@ -200,6 +205,31 @@ INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, 
 
 
 																									
+=======
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Quickie in the Molar', 'Traverse in from the left past a small gear placement and clip a very high first bolt (which can be stick-clipped or equipped by lowering from Muscle Belly). Unlock the technical and strenuous crux between the 2nd and third bolt then stay on your feet for micro-crimping past one more bolt and a moderate runout to the Muscle Belly chains.
+
+A second pitch continues straight up and encounters another 5.12a crux but we did not climb it. The latest New River guidebook notes that the top pitch is not equipped with anchors.
+
+The first pitch is a great little route in its own right and will stay dry in the rain.', '5.12a', 60, 2, 'S', TRUE, 3, 4);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Muscle Belly', 'This climb has lots of thin moves and some friable rock, but it''s well worth doing. Start by climbing up on the right side of the arete. Stay on the right face for a few thin moves and then head back left toward the arete. From here, use small footholds and crimps on the right side of the arete aiming for a small horizontal crack (crux). Once you reach the horizontal, look to the left side of the arete for positive crimps and climb the arete to the finish.',
+																														 '5.11c', 50, 2, 'S', TRUE, 3, 5);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Wild Seed', 'A great route for the grade, worth coming to the area to do. Climb up very easy rock to reach the high first bolt. Continue up right of crack system over a slabby section until under roof. Traverse right about 8 ft. Climb straight up over steep rock(crux), following great jugs all the way to the shuts.',
+																														 '5.11a', 70, 3, 'S', TRUE, 3, 6);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Gonad the Bavarian', 'This is a short route, but fairly sustained climbing to the 4th bolt. Climbs like a trad route. Start by traversing in from the left under the first bolt. Continue up using shallow cracks and corners. It''s difficult to find a position to get your hands free to clip the bolts!',
+																														 '5.11d', 50, 2, 'S', TRUE, 3, 4);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Foutre la Doigt', 'The crux is up higher. Going from the third to chains is the rough part. A few very interesting moves using opposing forces will help make quick work of this. Going from the fourth to the chains is a bit chossy, lots of moss.', 
+																														 '5.12b', 50, 1, 'S', TRUE, 3, 4);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('The Chameleon', 'A good warm up for the other climbs on this wall. Climb up the juggy face, making use of a right leaning ramp at the half way point. Continue straight up. The crux is the final moves to reach the shuts. Figuring out the crux sequence may be a bit tricky.',
+																														 '5.10b', 60, 2, 'S', TRUE, 3, 4);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Fly Girls', 'Great route with interesting moves. Start below a 3 ft wide roof about 10 ft off the ground. Climb up to gain an undercling under the roof, pull roof to reach a great shelf. Continue up and left climbing the face to reach a shallow right facing corner. Follow corner to a large stance, climbing eases up considerably from here on. Follow the face to the top.',
+																														 '5.12a', 60, 2, 'S', TRUE, 3, 5);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Arbor Day', 'If you enjoy the slab climb Freaky Stylee you are sure to enjoy Arbor Day. The difficulties of the climb greet you early on as you''re forced to negotiate some balancy moves above a sharp little tree. Be sure to stay level headed as you clip an old rusty pin and make your way to a good rest. For the next few moves your hands are on good sidepulls while feet are on smears. After finishing this difficult sections look above you to see that you have another 15 feet of climbing to the last bolt. Finish by traversing another 10 feet to the anchor of Fragile Ego System.
+
+This route is a little frightening with some bad fall potential. It might be smart to top rope the route off of Fragile Ego System before deciding to lead it.',
+																														 '5.12a', 60, 3, 'S', TRUE, 3, 4);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Fragile Ego System', 'Start by grabbing the jug below the first bolt and smearing your way up to a stance. Continue up the slabby face. The crux is reaching the 4th bolt where the face turns slightly overhanging. Pull up past this bolt to the best holds on the climb and follow up to the anchors. This route is pretty solid for the grade and it requires the leader to make some delicate moves with your feet a foot or two above the bolts. Great climbing, don''t pass this up if you are in the area!',
+																														 '5.10b', 60, 2, 'S', TRUE, 3, 5);																														 
+>>>>>>> d6630aa108101655f4b048fadb88a800d6207361
 
 
 
