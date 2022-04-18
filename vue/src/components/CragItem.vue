@@ -1,7 +1,7 @@
 <template>
   <div class="crag">
       <router-link v-bind:to="{ name: 'crag-information', params: {areaName: $store.state.currentArea, cragName: crag.crag_name}}">
-      <button v-on:click="setCragInformation()">
+      <button id="button" v-on:click="setCragInformation()">
           {{crag.crag_name}}
       </button>
       </router-link>
@@ -27,7 +27,7 @@ export default {
 	padding-right: 2rem;
 }
 
-button {
+#button {
     display: inline-block;
     width: 100%;
     text-decoration: none;
@@ -48,7 +48,7 @@ button {
 
 }
 
-button:hover, button:focus
+#button:hover, button:focus
 {
 	-webkit-animation: pulsate 1.2s linear infinite;
 	animation: pulsate 1.2s linear infinite;
