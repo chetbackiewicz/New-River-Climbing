@@ -1,8 +1,8 @@
 <template>
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
-      <header>
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+      <header id="sign-in">
+      <h3 class="h3">Please Sign In</h3>
       </header>
       <div
         class="alert alert-danger"
@@ -33,8 +33,8 @@
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      <router-link id="need-account" :to="{ name: 'register' }">Need an account?</router-link>
+      <button class="sign-in-button" type="submit">Sign in</button>
     </form>
   </div>
 </template>
@@ -76,3 +76,79 @@ export default {
   }
 };
 </script>
+
+<style>
+
+#username {
+  width: 70%;
+  height: 20px;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+#password {
+  width: 70%;
+  height: 20px;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+#need-account{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  margin-top: 1rem;
+}
+
+label {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  margin: 1rem;
+}
+
+#login {
+  display: flex;
+  background-color: #659dbd;
+  justify-content: center;
+}
+
+#sign-in {
+  background-color: skyblue;
+}
+
+.h3 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+}
+
+.form-signin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid skyblue;
+  border-radius: 15px;
+  width: 300px;
+  padding: 2rem;
+  margin-top: 8rem;
+  margin-bottom: 80vh;
+  background-color: skyblue;
+}
+
+.sign-in-button {
+  border: none;
+  color: black;
+  border-radius: 25px;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.sign-in-button:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+</style>

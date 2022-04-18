@@ -1,7 +1,7 @@
 <template>
     <div class="area">
         <router-link v-bind:to="{ name: 'area-information', params: {areaName: area.area_name}}">
-            <button>{{area.area_name}}</button>
+            <button id="button">{{area.area_name}}</button>
         </router-link>
     </div>
 
@@ -24,7 +24,7 @@ export default {
 	padding-right: 2rem;
 }
 
-button {
+#button {
     display: inline-block;
     width: 50%;
     text-decoration: none;
@@ -45,7 +45,7 @@ button {
 
 }
 
-button:hover, button:focus
+#button:hover, button:focus
 {
 	-webkit-animation: pulsate 1.2s linear infinite;
 	animation: pulsate 1.2s linear infinite;
