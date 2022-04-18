@@ -46,7 +46,7 @@ export default {
     /* border: 1px solid #ccc; */
     border-radius: 25px;
     margin: 5px;
-    background-image: linear-gradient(skyblue, white);
+    background-image: linear-gradient(#659dbd, #f1f1f1);
 }
 
 .info {

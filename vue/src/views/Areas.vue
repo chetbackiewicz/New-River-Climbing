@@ -57,14 +57,6 @@ h2 {
   padding-right: 2rem;
 }
 
-.description {
-  text-indent: 2%;
-}
-
-.directions {
-  text-indent: 2%;
-}
-
 .instructions {
   padding-top: 1.5rem;
   text-align: center;

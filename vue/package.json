@@ -10,11 +10,13 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.14.0",
     "axios": "^0.21.1",
     "core-js": "^3.9.1",
     "datepicker": "^0.0.0",
     "vue": "^2.6.12",
     "vue-router": "^3.5.1",
+    "vue2-google-maps": "^0.10.7",
     "vuejs-datepicker": "^1.6.2",
     "vuex": "^3.6.2"
   },
