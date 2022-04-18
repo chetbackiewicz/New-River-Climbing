@@ -133,6 +133,8 @@ This is an awesome place that stays cool during the summer, well, as cool as pos
 Seeps after rain for at least one full day.',
 																 'park at rogers take west trail and keep heading downhill to the west', 2);
 																 
+													
+																 
 	
 INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Against the Grain', 'Scramble up onto a ledge at the far left end of the cave and climb the relatively short line of bolts through the steep roof. This uncharacteristic power problem requires less endurance than the other routes but has some tough moves with bad feet.', 
 																									   '5.13b', 50, 2, 'S',TRUE, 1, 6);		
@@ -152,6 +154,52 @@ INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, 
 																										'5.12b', 60, 3, 'S', TRUE, 1, 7);
 INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Burning Choss', 'This rarely done but excellent line has some of the best moves in The Hole. Start at a right-facing corner near the right end of the steepest part of the cave. Climb to a ledge, reach out to a massive incut rail, and cut your feet. Climb out the jugs to a good shake under the second roof. Pull the roof direct and go straight up to independent anchors.',
 																										'5.13a', 70, 3, 'S', TRUE, 1, 7);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('The Green Piece', 'The originally green rock of this nice face has cleaned up into one of the most popular routes in the gorge. After bolting this climb alone, Gus was so psyched to send that he cast off solo. Upon reaching the anchor, he realized he had forgotten his rappel device and barley survived the hand-over-hand descent down his fixed line!', 
+																														 '5.10b', 70, 3, 'S', TRUE, 2, 6);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Low Voltage', 'Begin from the terrace and climb up to a crack near the first bolt. The face above has good holds but is steep enough to get you pumped.',
+																														 '5.10b', 70, 3, 'S', TRUE, 2, 7);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Ministry', 'This short route climbs relatively easy rock to a stopper crux. Continuing up the gear-protected crack to the Low Voltage anchor is 5.10+',
+																														 '5.12b', 40, 2, 'S', TRUE, 2, 4);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Sancho Belige', 'Sustained climbing on sloping holds up the gently overhangning wall make this a classic fitness route. Managing the pump can be a bit more challenging on hot summer days.', 
+																														 '5.11c', 70, 4, 'S', TRUE, 2, 7);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('The Bicycle Club', 'Stick-clip, then climb slopers to a tricky section pulling the initial roof. A casual face leads to a thin crux that might have you backpedaling through the air.', 
+																														 '5.11d', 60, 3, 'S', TRUE, 2, 5);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id) VALUES ('The Bag', 'A good hand crack that climbs through a roof and into an alcove. Squirm up the chimney to a bolt anchor on the ledge.', 
+																														 '5.10d', 60, 2, 'T', TRUE, 2);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id) VALUES ('Jumpin'' Ring Snakes', 'Start with the first moves of Flight of the Gumbie, but move left into the Yosemite-like crack and chimney system. This is a fun route that is worth bringing a rack for.', 
+																														 '5.9', 70, 2, 'T', TRUE, 2);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Flight of the Gumbie', 'This mega-classic arete starts on the face just right of the major corner. This is an excellent moderate lead, but many a fledgling sport weenie has taken the dreaded flight.', 
+																														 '5.9', 80, 4, 'S', TRUE, 2, 9);
+INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('All the Right Moves', 'Stick-clip, then jam up the crack and hand-traverse right and up to the first bolt. The climbing is continuously engaging, with two big roofs and a spectacular finish up a blank billboard of rock.', 
+																														 '5.11d', 80, 3, 'S', TRUE, 2, 9);
+																														 
+																														 
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+																										
+
+
+																									
 
 
 
