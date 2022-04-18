@@ -47,4 +47,8 @@ export default {
 
 <style>
 
+.crag-name {
+    color: #f1f1f1;
+}
+
 </style>

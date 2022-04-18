@@ -33,18 +33,18 @@ div #nav {
 
 a:link {
   text-decoration: none;
-  color: #fbeec1;
+  color: #f1f1f1;
 }
 
 a:visited {
   text-decoration: none;
-  color: #fbeec1;
+  color: #f1f1f1;
 }
 
 
 footer {
   background-color: #659dbd;
-  color: #fbeec1;
+  color: #f1f1f1;
   border-width: 2px;
   border-color: black;
   width: 100%;

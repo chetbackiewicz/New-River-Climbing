@@ -67,7 +67,7 @@ export default {
    .area-name {
         display: flex;
         background-color: #659dbd;
-        color: #fbeec1;
+        color: #f1f1f1;
     }
 
 
