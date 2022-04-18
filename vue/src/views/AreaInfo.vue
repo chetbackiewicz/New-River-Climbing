@@ -65,9 +65,10 @@ export default {
 <style>
 
    .area-name {
-        display: flex;
-        background-color: #659dbd;
-        color: #f1f1f1;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  padding: 20px;
+  margin: 0%;
     }
 
 

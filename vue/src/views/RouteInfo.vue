@@ -1,7 +1,7 @@
 <template>
   <div class = "route-info">
       <header>
-        <h1 class="route-name">
+        <h1 id="route-name">
           {{$store.state.routeInfo.route_name}} {{$store.state.routeInfo.grade}}
         </h1>
       </header>
@@ -82,6 +82,13 @@ export default {
 </script>
 
 <style>
+
+#route-name {
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  padding: 20px;
+  margin: 0%;
+}
 
 .top-of-page-display {
   display: grid;

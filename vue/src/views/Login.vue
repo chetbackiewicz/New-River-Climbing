@@ -2,7 +2,7 @@
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <header id="sign-in">
-      <h3 class="h3">Please Sign In</h3>
+      <h3 class="sign-in-header">Please Sign In</h3>
       </header>
       <div
         class="alert alert-danger"
@@ -115,9 +115,10 @@ label {
   background-color: skyblue;
 }
 
-.h3 {
+.sign-in-header {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: white;
+  padding: 0;
 }
 
 .form-signin {
@@ -144,6 +145,7 @@ label {
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 .sign-in-button:hover {

@@ -1,7 +1,7 @@
 <template>
   <div id="climbing-log">
       <header>
-          <h1>
+          <h1 id="log-heading-text">
             Climbing Log
           </h1>
           <h3 id="your-climbs">Your Climbs</h3>
@@ -40,5 +40,12 @@ export default {
 
 #log-list {
     margin: 5rem;
+}
+
+#log-heading-text {
+    background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  padding: 20px;
+  margin: 0%;
 }
 </style>
