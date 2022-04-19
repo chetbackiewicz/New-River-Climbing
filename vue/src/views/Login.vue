@@ -107,7 +107,6 @@ label {
 
 #login {
   display: flex;
-  background-color: #659dbd;
   justify-content: center;
 }
 

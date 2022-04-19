@@ -30,6 +30,14 @@ public class JdbcAreaCommentDao implements AreaCommentDAO {
         return areaComments;
     }
 
+    @Override
+    public AreaComment addAreaComment(AreaComment areaComment) {
+        String sql = "INSERT INTO area_comments(area_id, comment) VALUES (?, ?) RETURNING area_comment_id";
+        Integer areaCommentId = jdbcTemplate.queryForObject(sql, Integer.class, areaComment.getAreaId(), areaComment.getComment());
+        areaComment.setAreaCommentId(areaCommentId);
+        return areaComment;
+    }
+
     private AreaComment mapRowToAreaComment(SqlRowSet rows) {
         AreaComment areaComment = new AreaComment();
         areaComment.setAreaCommentId(rows.getInt("area_comment_id"));
