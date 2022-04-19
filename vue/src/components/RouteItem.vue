@@ -38,7 +38,7 @@ export default {
   transition: 0.3s;
   width: 15vw;
   margin-bottom: 1rem;
-border-radius: 25px;
+  border-radius: 25px;
 
 }
 
