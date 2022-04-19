@@ -1,9 +1,15 @@
 <template>
   <div class="crag">
       <router-link v-bind:to="{ name: 'crag-information', params: {areaName: $store.state.currentArea, cragName: crag.crag_name}}">
-      <button id="button" v-on:click="setCragInformation()">
-          {{crag.crag_name}}
-      </button>
+      <!-- <button id="button" v-on:click="setCragInformation()"> -->
+	<div class="card">
+			<img id="card-img" src="../assets/route-images/Yowsah.jpg">
+			<div class="container">
+			<h4 id="crag-name">
+				<b>{{crag.crag_name}}</b>
+			</h4>
+			</div>
+		</div>
       </router-link>
   </div>
 </template>
@@ -23,11 +29,48 @@ export default {
 <style>
 
 .crag {
-	padding-left: 2rem;
-	padding-right: 2rem;
+	display: inline-flex;
+    flex-wrap: wrap;
+	margin: 2rem;
 }
 
-#button {
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40vw;
+  margin-bottom: 1rem;
+  border-radius: 25px;
+
+}
+
+#card-img {
+	width: 100%; /* width of container */
+    height: 150px; /* height of container */
+    object-fit: cover;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+
+}
+
+#crag-name {
+	margin: 1rem;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 12px 24px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	color: black;
+	justify-content: left;
+	text-align: center;
+}
+
+/* #button {
     display: inline-block;
     width: 100%;
     text-decoration: none;
@@ -66,5 +109,5 @@ export default {
 	0%   { color: #ddd; text-shadow: 0 -1px 0 #000; }
 	50%  { color: #fff; text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff; }
 	100% { color: #ddd; text-shadow: 0 -1px 0 #000; }
-}
+} */
 </style>

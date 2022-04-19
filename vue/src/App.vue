@@ -8,7 +8,7 @@
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
       <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
     </div>
-    <router-view />
+    <router-view class="contents" />
     <footer>
       <p id="footer-text">The New River Gorge Climbing Guide</p>
     </footer>
@@ -16,6 +16,16 @@
 </template>
 
 <style>
+
+#app {
+  position: relative;
+  min-height: 100vh;
+}
+
+.contents {
+  padding-bottom: 10rem;
+}
+
 
 div #nav {
   display: flex;
@@ -44,11 +54,12 @@ a:visited {
 
 footer {
   background-color: #659dbd;
+  margin-top: 3rem;
   color: #f1f1f1;
   border-width: 2px;
   border-color: black;
   width: 100%;
-  position: relative;
+  position: absolute;
   bottom: 0;
 }
 

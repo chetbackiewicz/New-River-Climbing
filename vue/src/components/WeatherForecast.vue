@@ -65,7 +65,7 @@ export default {
     /* border: 2px solid #ccc; */
     border-radius: 25px;
     margin: 5px;
-    background-image: linear-gradient(#659dbd, #f1f1f1);
+    background-image: linear-gradient(skyblue, #f1f1f1);
     padding: 1rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;

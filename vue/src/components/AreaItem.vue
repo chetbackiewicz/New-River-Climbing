@@ -1,7 +1,14 @@
 <template>
     <div class="area">
         <router-link v-bind:to="{ name: 'area-information', params: {areaName: area.area_name}}">
-            <button id="button">{{area.area_name}}</button>
+           <div class="card">
+			<img id="card-img" src="../assets/route-images/Yowsah.jpg">
+			<div class="container">
+			<h4 id="area-name">
+				<b>{{area.area_name}}</b>
+			</h4>
+		</div>
+		</div>
         </router-link>
     </div>
 
@@ -20,8 +27,45 @@ export default {
 <style>
 
 .area {
-	padding-left: 2rem;
-	padding-right: 2rem;
+	display: inline-flex;
+    flex-wrap: wrap;
+	margin: 2rem;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40vw;
+  margin-bottom: 1rem;
+  border-radius: 25px;
+
+}
+
+#card-img {
+	width: 100%; /* width of container */
+    height: 150px; /* height of container */
+    object-fit: cover;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+
+}
+
+#area-name {
+	margin: 1rem;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 12px 24px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	color: black;
+	justify-content: left;
+	text-align: center;
 }
 
 #button {
