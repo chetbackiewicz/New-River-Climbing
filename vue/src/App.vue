@@ -24,6 +24,8 @@
 
 .contents {
   padding-bottom: 10rem;
+  background-image: #f1f1f1;
+  background-clip: content-box, padding-box;
 }
 
 
