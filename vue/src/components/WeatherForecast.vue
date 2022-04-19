@@ -74,7 +74,7 @@ export default {
     background-image: linear-gradient(skyblue, #f1f1f1);
     padding: 1rem;
     font-family: 'Lato', sans-serif;
-font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     width: 15vw;
 }

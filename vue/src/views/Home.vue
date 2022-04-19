@@ -6,7 +6,7 @@
         <source v-bind:src="require('../assets/crouch.mp4')" type="video/mp4">
       </video>
       <h1 id="home-header-text">
-          Welcome to the New River Gorge Guide
+          Welcome to the New River Climbing
       </h1>
       <router-link class="search-routes-button" v-bind:to="{ name: 'search'}">
         <button>
@@ -45,7 +45,7 @@ If you happen to leave anything at the crag then please contact Water Stone Outd
     <h1 v-else>Waiting for weather...</h1>
     <h1 id="directions-header">Directions</h1>
     <div id="map">
-      <iframe src="https://www.google.com/maps/d/embed?mid=1vEtPPeF_gw3tBivLNxUV2ALDUZjhx7pf&ehbc=2E312F" width="640" height="480"></iframe>
+      <iframe src="https://www.google.com/maps/d/embed?mid=1vEtPPeF_gw3tBivLNxUV2ALDUZjhx7pf&ehbc=2E312F" width="1280" height="800"></iframe>
     </div>
     </main>
   </div>
@@ -197,6 +197,7 @@ position: relative;
   padding-bottom: 3rem;
   justify-content: center;
   padding-bottom: 200px;
+  
 }
 
 iframe {

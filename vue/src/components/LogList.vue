@@ -47,7 +47,8 @@ export default {
 }
 
 table {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
   width: 80%;
   border-collapse: collapse;
   border: 3px solid skyblue;

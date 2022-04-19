@@ -58,7 +58,7 @@ export default {
 }
 
 #search-bar:hover {
-    background-color: skyblue;
+    background-color: #fbeec1;
     color: black;
 }
 

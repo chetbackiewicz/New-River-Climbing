@@ -52,7 +52,8 @@ export default {
 
 #area-name {
 	margin: 1rem;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* On mouse-over, add a deeper shadow */

@@ -52,7 +52,7 @@ export default {
 .info {
     padding: 1rem;
     font-family: 'Lato', sans-serif;
-font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
 }
 </style>

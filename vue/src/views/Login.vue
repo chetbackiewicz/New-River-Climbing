@@ -95,14 +95,14 @@ export default {
 
 #need-account{
   font-family: 'Lato', sans-serif;
-font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: white;
   margin-top: 1rem;
 }
 
 label {
   font-family: 'Lato', sans-serif;
-font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: white;
   margin: 1rem;
 }
@@ -118,7 +118,7 @@ font-family: 'Poppins', sans-serif;
 
 .sign-in-header {
   font-family: 'Lato', sans-serif;
-font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: white;
   padding: 0;
 }

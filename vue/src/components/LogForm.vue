@@ -85,7 +85,8 @@ export default {
 }
 
 #form-title {
-    font-family: Arial, Helvetica, sans-serif;;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 #comments {
