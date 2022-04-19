@@ -94,13 +94,15 @@ export default {
 }
 
 #need-account{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Lato', sans-serif;
+font-family: 'Poppins', sans-serif;
   color: white;
   margin-top: 1rem;
 }
 
 label {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Lato', sans-serif;
+font-family: 'Poppins', sans-serif;
   color: white;
   margin: 1rem;
 }
@@ -116,7 +118,8 @@ label {
 }
 
 .sign-in-header {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Lato', sans-serif;
+font-family: 'Poppins', sans-serif;
   color: white;
   padding: 0;
 }

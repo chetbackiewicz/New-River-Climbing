@@ -53,6 +53,8 @@ export default {
     border-radius: 25px;
     font-size: 20px;
     padding-left: 0.5rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 #search-bar:hover {
@@ -62,6 +64,7 @@ export default {
 
 .route-list {
     display: inline-flex;
+    justify-content: center;
     flex-wrap: wrap;
     margin-left: 3rem;
     margin-right: 3rem;

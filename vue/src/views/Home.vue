@@ -92,11 +92,11 @@ export default {
   text-align: center;
   text-decoration: none;
   font-size: 18px;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
   transition-duration: 0.4s;
   cursor: pointer;
 }
-
-
 
 #find-routes:hover {
   background-color: #008CBA;
@@ -104,10 +104,6 @@ export default {
 }
 
 
-.search-routes-button:hover {
-  background-color: #008CBA;
-  color: white;
-}
 
 #homepage-header {
   background: rgba(0, 0, 0, 0.5);

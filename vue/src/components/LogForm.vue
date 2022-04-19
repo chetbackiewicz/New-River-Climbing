@@ -76,6 +76,7 @@ export default {
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
+  border: 1px solid grey;
 }
 
 #submit:hover {
