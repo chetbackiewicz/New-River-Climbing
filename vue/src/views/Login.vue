@@ -109,7 +109,6 @@ font-family: 'Poppins', sans-serif;
 
 #login {
   display: flex;
-  background-color: #659dbd;
   justify-content: center;
 }
 
