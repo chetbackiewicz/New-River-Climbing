@@ -2,7 +2,7 @@
     <div class="area">
         <router-link v-bind:to="{ name: 'area-information', params: {areaName: area.area_name}}">
            <div class="card">
-			<img id="card-img" src="../assets/route-images/Yowsah.jpg">
+			<img id="card-img" v-bind:src="require('../assets/area-images/' + area.area_name + '.jpg')">
 			<div class="container">
 			<h4 id="area-name">
 				<b>{{area.area_name}}</b>
