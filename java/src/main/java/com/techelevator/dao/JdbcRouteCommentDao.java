@@ -21,12 +21,12 @@ public class JdbcRouteCommentDao implements RouteCommentDao {
     @Override
     public List<RouteComment> getRouteCommentsByRouteName(String routeName) {
         List<RouteComment> routeComments = new ArrayList<>();
-        String sql = "SELECT route_comment_id, route_comments.route_id, comment FROM route_comments " +
+        String sql = "SELECT route_comment_id, route_comments.route_id, route_comments.username, comment FROM route_comments " +
                 "INNER JOIN routes ON routes.route_id = route_comments.route_id " +
                 "WHERE routes.route_name = ?";
 
         SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, routeName);
-        if (rows.next()) {
+        while (rows.next()) {
             routeComments.add(mapRowToRouteComment(rows));
         }
         return routeComments;
@@ -34,8 +34,8 @@ public class JdbcRouteCommentDao implements RouteCommentDao {
 
     @Override
     public RouteComment addRouteComment(RouteComment routeComment) {
-        String sql = "INSERT INTO route_comments(route_id, comment) VALUES (?, ?) RETURNING route_comment_id";
-        Integer routeCommentId = jdbcTemplate.queryForObject(sql, Integer.class, routeComment.getRouteId(), routeComment.getComment());
+        String sql = "INSERT INTO route_comments(route_id, comment, username) VALUES (?, ?, ?) RETURNING route_comment_id";
+        Integer routeCommentId = jdbcTemplate.queryForObject(sql, Integer.class, routeComment.getRouteId(), routeComment.getComment(), routeComment.getUsername());
         routeComment.setRouteCommentId(routeCommentId);
         return routeComment;
     }
@@ -44,6 +44,7 @@ public class JdbcRouteCommentDao implements RouteCommentDao {
         RouteComment routeComment = new RouteComment();
         routeComment.setRouteCommentId(rows.getInt("route_comment_id"));
         routeComment.setRouteId(rows.getInt("route_id"));
+        routeComment.setUsername(rows.getString("username"));
         routeComment.setComment(rows.getString("comment"));
         return routeComment;
     }

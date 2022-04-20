@@ -19,12 +19,12 @@ public class JdbcAreaCommentDao implements AreaCommentDAO {
     @Override
     public List<AreaComment> getAreaCommentsByAreaName(String areaName) {
         List<AreaComment> areaComments = new ArrayList<>();
-        String sql = "SELECT area_comment_id, area_comments.area_id, comment FROM area_comments " +
+        String sql = "SELECT area_comment_id, area_comments.area_id, area_comments.username, comment FROM area_comments " +
                 "INNER JOIN areas ON areas.area_id = area_comments.area_id " +
                 "WHERE areas.area_name = ?";
 
         SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, areaName);
-        if (rows.next()) {
+        while (rows.next()) {
             areaComments.add(mapRowToAreaComment(rows));
         }
         return areaComments;
@@ -32,8 +32,8 @@ public class JdbcAreaCommentDao implements AreaCommentDAO {
 
     @Override
     public AreaComment addAreaComment(AreaComment areaComment) {
-        String sql = "INSERT INTO area_comments(area_id, comment) VALUES (?, ?) RETURNING area_comment_id";
-        Integer areaCommentId = jdbcTemplate.queryForObject(sql, Integer.class, areaComment.getAreaId(), areaComment.getComment());
+        String sql = "INSERT INTO area_comments(area_id, username, comment) VALUES (?, ?, ?) RETURNING area_comment_id";
+        Integer areaCommentId = jdbcTemplate.queryForObject(sql, Integer.class, areaComment.getAreaId(), areaComment.getUsername(), areaComment.getComment());
         areaComment.setAreaCommentId(areaCommentId);
         return areaComment;
     }
@@ -41,6 +41,7 @@ public class JdbcAreaCommentDao implements AreaCommentDAO {
     private AreaComment mapRowToAreaComment(SqlRowSet rows) {
         AreaComment areaComment = new AreaComment();
         areaComment.setAreaCommentId(rows.getInt("area_comment_id"));
+        areaComment.setUsername(rows.getString("username"));
         areaComment.setAreaId(rows.getInt("area_id"));
         areaComment.setComment(rows.getString("comment"));
         return areaComment;
