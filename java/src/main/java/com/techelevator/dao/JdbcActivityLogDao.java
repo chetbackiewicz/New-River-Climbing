@@ -44,6 +44,12 @@ public class JdbcActivityLogDao implements ActivityLogDao{
         return activityLog;
     }
 
+    @Override
+    public void deleteActivity(int acitivityLogId) {
+        String sql = "DELETE FROM activity_logs WHERE activity_log_id = ?";
+        jdbcTemplate.update(sql, acitivityLogId);
+    }
+
     private ActivityLog mapRowToActivityLog(SqlRowSet row) {
         ActivityLog log = new ActivityLog();
         log.setLogId(row.getInt("activity_log_id"));

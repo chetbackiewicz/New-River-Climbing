@@ -26,4 +26,9 @@ public class ActivityLogController {
     public ActivityLog addActivityLog(@RequestBody ActivityLog activityLog) {
         return activityLogDao.addActivityLog(activityLog);
     }
+
+    @RequestMapping(path="/{activityLogId}/activity-log", method = RequestMethod.DELETE)
+    public void deleteActivityLog(@PathVariable int activityLogId) {
+        activityLogDao.deleteActivity(activityLogId);
+    }
 }
