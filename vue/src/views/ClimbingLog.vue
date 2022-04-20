@@ -4,7 +4,7 @@
           <h1 id="log-heading-text">
             Climbing Log
           </h1>
-          <h3 id="your-climbs">Your Climbs</h3>
+          <h2 id="your-climbs">Your Climbs</h2>
       </header>
   
     <main>
@@ -36,6 +36,7 @@ export default {
 <style>
 #your-climbs {
     text-align: center;
+    color: #f1f1f1;
 }
 
 #log-list {
@@ -43,9 +44,10 @@ export default {
 }
 
 #log-heading-text {
-    background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
-  padding: 20px;
-  margin: 0%;
+    /* background: rgba(0, 0, 0, 0.5); */
+    text-align: center;
+    color: #f1f1f1;
+    padding: 10px;
+    margin-top: 5rem;
 }
 </style>

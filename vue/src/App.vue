@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@300&display=swap" rel="stylesheet">
     <div id="nav">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{name: 'areas'}">Areas</router-link>&nbsp;|&nbsp;
@@ -20,12 +23,14 @@
 #app {
   position: relative;
   min-height: 100vh;
+  background-color: #f1f1f1;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .contents {
   padding-bottom: 10rem;
-  background-image: #f1f1f1;
-  background-clip: content-box, padding-box;
+  background-color: #f1f1f1;
 }
 
 
@@ -36,7 +41,8 @@ div #nav {
   background-color: #659dbd;
   font-size: 1rem;
   font-weight: bold;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;;
 }
 
 #nav:link {

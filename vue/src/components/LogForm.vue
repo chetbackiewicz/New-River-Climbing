@@ -76,6 +76,7 @@ export default {
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
+  border: 1px solid grey;
 }
 
 #submit:hover {
@@ -84,7 +85,8 @@ export default {
 }
 
 #form-title {
-    font-family: Arial, Helvetica, sans-serif;;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 #comments {

@@ -52,7 +52,8 @@ export default {
 
 #area-name {
 	margin: 1rem;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -68,7 +69,7 @@ export default {
 	text-align: center;
 }
 
-#button {
+/* #button {
     display: inline-block;
     width: 50%;
     text-decoration: none;
@@ -108,6 +109,6 @@ export default {
 	50%  { color: #fff; text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff; }
 	100% { color: #ddd; text-shadow: 0 -1px 0 #000; }
 }
-    
+     */
 
 </style>

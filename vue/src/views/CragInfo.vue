@@ -5,21 +5,23 @@
               {{$store.state.cragInfo.crag_name}}
           </h1>
       </header>
-      <h3>
+      <div>
+        <h3 id="area-information">
           Description
       </h3>
-      <p>
+      <p id="area-information">
           {{$store.state.areaInfo.description}}
       </p>
-      <h3>
+      <h3 id="area-information">
           Directions
       </h3>
-      <p>
+      <p id="area-information">
           {{$store.state.areaInfo.directions}}
       </p>
       <div>
           <h3>List of Routes</h3>
           <route-list />
+      </div>
       </div>
   </div>
 </template>
@@ -48,10 +50,20 @@ export default {
 <style>
 
 .crag-name {
-background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
   padding: 20px;
   margin: 0%;
+}
+
+h3 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+p {
+    padding-left: 3rem;
+    padding-right: 3rem;
 }
 
 </style>

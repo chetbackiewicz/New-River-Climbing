@@ -5,7 +5,7 @@
             <div id="icon">
                 <img id="weatherImg" :src=getIcon />
             </div>
-            <div id="description">
+            <div id="weather-description">
                 Current: {{$store.state.weatherInfo.current.weather[0].description}}
             </div>
             <div id="current-temp">
@@ -58,6 +58,12 @@ export default {
     "current-weather"
     "future-weather";
     justify-items: center;
+    margin-bottom: 7rem;
+}
+
+#weather-description {
+    margin-right: 0%;
+    margin-bottom: 1rem;
 }
 
 .current-weather {
@@ -67,7 +73,8 @@ export default {
     margin: 5px;
     background-image: linear-gradient(skyblue, #f1f1f1);
     padding: 1rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     width: 15vw;
 }
