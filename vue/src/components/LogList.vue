@@ -19,7 +19,7 @@
                 <td>{{log.area_name}}</td>
                 <td>{{log.attempts}}</td>
                 <td>{{log.date_sent}}</td>
-                <td>{{log.route_comments}}</td>
+                <td class="tdbreak">{{log.route_comments}}</td>
               </tr>
           </tbody>
       </table>
@@ -40,6 +40,10 @@ export default {
 </script>
 
 <style>
+
+.tdbreak {
+  word-break: break-all
+}
 
 .activity-log {
     display: flex;

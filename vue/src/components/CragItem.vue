@@ -2,7 +2,7 @@
   <div class="crag">
       <router-link v-bind:to="{ name: 'crag-information', params: {areaName: $store.state.currentArea, cragName: crag.crag_name}}">
       <!-- <button id="button" v-on:click="setCragInformation()"> -->
-	<div class="card">
+	<div class="card" v-on:click="setCragInformation()">
 			<img id="card-img" v-bind:src="require('../assets/crag-images/' + crag.crag_name + '.jpg')">
 			<div class="container">
 			<h4 id="crag-name">

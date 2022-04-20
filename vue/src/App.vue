@@ -24,7 +24,7 @@
   position: relative;
   min-height: 100vh;
   background-color: #f1f1f1;
-  font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif;
   font-family: 'Poppins', sans-serif;
 }
 

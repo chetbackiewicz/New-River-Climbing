@@ -79,6 +79,8 @@ export default {
 
 <style>
 
+
+
 #username {
   width: 70%;
   height: 20px;
@@ -110,6 +112,10 @@ label {
 #login {
   display: flex;
   justify-content: center;
+  background-image: url("../assets/wallpaperflare.com_wallpaper.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 #sign-in {
