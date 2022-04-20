@@ -9,6 +9,7 @@
 import AreaList from "@/components/AreaList"
 import areaService from "@/services/AreaService"
 
+
 export default {
     name: 'areas',
     components: {

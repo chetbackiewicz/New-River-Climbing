@@ -40,10 +40,10 @@ Although locals climb at the New year-round, spring and fall are the best season
 
 If you happen to leave anything at the crag then please contact Water Stone Outdoors at (304) 574-2425.</p>
       </div>
-    <h1 id="weather-header">Weather</h1>
+    <h1 id="weather-header">New River Gorge Weather Forecast</h1>
     <weather-forecast v-if="isLoaded" />
     <h1 v-else>Waiting for weather...</h1>
-    <h1 id="directions-header">Directions</h1>
+    <h1 id="directions-header">New River Gorge Area Map</h1>
     <div id="map">
       <iframe src="https://www.google.com/maps/d/embed?mid=1vEtPPeF_gw3tBivLNxUV2ALDUZjhx7pf&ehbc=2E312F" width="1280" height="800"></iframe>
     </div>
@@ -116,8 +116,7 @@ export default {
 }
 
 #myVideo {
-  width: 100%;
-  min-height: 40%;
+  height: 100%;
   position: relative;
   top: 0;
   left: 0;
@@ -129,7 +128,7 @@ main {
 }
 
 body {
-height: 100vh;
+height: 100%;
 margin: 0;
 padding: 0;
 position: relative;

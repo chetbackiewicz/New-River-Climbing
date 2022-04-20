@@ -5,15 +5,16 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "test:unit": "vue-cli-service test:unit"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.14.0",
     "axios": "^0.21.1",
     "core-js": "^3.9.1",
     "datepicker": "^0.0.0",
+    "firebase": "^9.6.11",
     "vue": "^2.6.12",
     "vue-router": "^3.5.1",
     "vue2-google-maps": "^0.10.7",
@@ -31,7 +32,10 @@
     "chai": "^4.3.3",
     "eslint": "^7.21.0",
     "eslint-plugin-vue": "^7.7.0",
+    "sass": "~1.32.0",
+    "sass-loader": "^10.0.0",
+    "vue-cli-plugin-vuetify": "~2.4.8",
     "vue-loader-v16": "npm:vue-loader@16.1.2",
     "vue-template-compiler": "^2.6.12"
-  }
+    }
 }
