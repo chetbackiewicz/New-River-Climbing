@@ -7,5 +7,9 @@ export default {
 
     addActivityLog(userId, log) {
         return axios.post(`/${userId}/activity-log`, log);
+    },
+
+    deleteActivity(logId) {
+        return axios.delete(`/${logId}/activity-log`)
     }
 }
