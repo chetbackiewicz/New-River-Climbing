@@ -49,5 +49,10 @@ public class CommentsController {
         return routeCommentDao.getRouteCommentsByRouteName(name);
     }
 
+    @RequestMapping(path = "/routes/{name}/comments", method = RequestMethod.POST)
+    public RouteComment addRouteComment(@RequestBody RouteComment routeComment) {
+        return routeCommentDao.addRouteComment(routeComment);
+    }
+
 
 }

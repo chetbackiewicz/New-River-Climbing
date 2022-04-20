@@ -22,12 +22,12 @@ public class JdbcCragCommentDao implements CragCommentDao {
     @Override
     public List<CragComment> getCragCommentsByCragName(String cragName) {
         List<CragComment> cragComments = new ArrayList<>();
-        String sql = "SELECT crag_comment_id, crag_comments.crag_id, comment FROM crag_comments " +
+        String sql = "SELECT crag_comment_id, crag_comments.crag_id, crag_comments.username, comment FROM crag_comments " +
                 "INNER JOIN crags ON crags.crag_id = crag_comments.crag_id " +
                 "WHERE crags.crag_name = ?";
 
         SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, cragName);
-        if (rows.next()) {
+        while (rows.next()) {
             cragComments.add(mapRowToCragComment(rows));
         }
         return cragComments;
@@ -35,8 +35,8 @@ public class JdbcCragCommentDao implements CragCommentDao {
 
     @Override
     public CragComment addCragComment(CragComment cragComment) {
-        String sql = "INSERT INTO crag_comments(crag_id, comment) VALUES (?, ?) RETURNING crag_comment_id";
-        Integer cragCommentId = jdbcTemplate.queryForObject(sql, Integer.class, cragComment.getCragId(), cragComment.getComment());
+        String sql = "INSERT INTO crag_comments(crag_id, comment, username) VALUES (?, ?, ?) RETURNING crag_comment_id";
+        Integer cragCommentId = jdbcTemplate.queryForObject(sql, Integer.class, cragComment.getCragId(), cragComment.getComment(), cragComment.getUsername());
         cragComment.setCragCommentId(cragCommentId);
         return cragComment;
     }
@@ -46,6 +46,7 @@ public class JdbcCragCommentDao implements CragCommentDao {
         CragComment cragComment = new CragComment();
         cragComment.setCragCommentId(rows.getInt("crag_comment_id"));
         cragComment.setCragId(rows.getInt("crag_id"));
+        cragComment.setUsername(rows.getString("username"));
         cragComment.setComment(rows.getString("comment"));
         return cragComment;
     }

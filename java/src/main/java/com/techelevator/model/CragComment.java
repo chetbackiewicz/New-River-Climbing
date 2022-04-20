@@ -8,14 +8,24 @@ public class CragComment {
     private int cragCommentId;
     @JsonProperty("crag_id")
     private int cragId;
+    private String username;
     private String comment;
 
     public CragComment() {
     }
 
-    public CragComment (int cragId, String comment) {
+    public CragComment (int cragId, String comment, String username) {
         this.cragId = cragId;
         this.comment = comment;
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public int getCragCommentId() {

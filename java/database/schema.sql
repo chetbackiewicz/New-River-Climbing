@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS activity_logs, users, areas, crags, routes;
+DROP TABLE IF EXISTS activity_logs, users, areas, crags, routes, area_comments, crag_comments, route_comments;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
 CREATE SEQUENCE seq_user_id
@@ -64,6 +64,41 @@ CREATE TABLE activity_logs (
 	CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
 	CONSTRAINT FK_route_id FOREIGN KEY (route_id) REFERENCES routes(route_id)
 );
+
+CREATE TABLE area_comments (
+	area_comment_id serial,
+	username varchar(50),
+	area_id int,
+	comment varchar(10000),
+	
+	CONSTRAINT PK_area_comment_id PRIMARY KEY (area_comment_id),
+	CONSTRAINT FK_username FOREIGN KEY (username) REFERENCES users(username),
+	CONSTRAINT FK_area_id FOREIGN KEY (area_id) REFERENCES areas(area_id)
+);
+
+CREATE TABLE crag_comments (
+	crag_comment_id serial,
+	username varchar(50),
+	crag_id int,
+	comment varchar(10000),
+	
+	CONSTRAINT PK_crag_comment_id PRIMARY KEY (crag_comment_id),
+	CONSTRAINT FK_username FOREIGN KEY (username) REFERENCES users(username),
+	CONSTRAINT FK_crag_id FOREIGN KEY (crag_id) REFERENCES crags(crag_id)
+);
+
+CREATE TABLE route_comments (
+	route_comment_id serial,
+	username varchar(50),
+	route_id int,
+	comment varchar(10000),
+	
+	CONSTRAINT PK_route_comment_id PRIMARY KEY (route_comment_id),
+	CONSTRAINT FK_username FOREIGN KEY (username) REFERENCES users(username),
+	CONSTRAINT FK_route_id FOREIGN KEY (route_id) REFERENCES routes(route_id)
+);
+
+
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
@@ -196,9 +231,5 @@ This route is a little frightening with some bad fall potential. It might be sma
 																														 '5.12a', 60, 3, 'S', TRUE, 3, 4);
 INSERT INTO routes (route_name, description, grade, height, rating, sport_trad, has_anchors, crag_id, bolt_count) VALUES ('Fragile Ego System', 'Start by grabbing the jug below the first bolt and smearing your way up to a stance. Continue up the slabby face. The crux is reaching the 4th bolt where the face turns slightly overhanging. Pull up past this bolt to the best holds on the climb and follow up to the anchors. This route is pretty solid for the grade and it requires the leader to make some delicate moves with your feet a foot or two above the bolts. Great climbing, don''t pass this up if you are in the area!',
 																														 '5.10b', 60, 2, 'S', TRUE, 3, 5);																														 
-
-
-
-
 
 
