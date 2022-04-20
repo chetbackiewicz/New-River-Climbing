@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 export default {
-    getAreaComments(name) {
-        return axios.get(`/areas/${name}/comments`);
+    getAreaComments(areaName) {
+        return axios.get(`/areas/${areaName}/comments`);
     },
 
-    addAreaComment(area) {
-        return axios.post(`/areas/${area}/comments`);
+    addAreaComment(areaName) {
+        return axios.post(`/areas/${areaName}/comments`);
     }
 }

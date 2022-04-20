@@ -28,7 +28,9 @@ export default new Vuex.Store({
     areaInfo: [],
     cragInfo: [],
     activityLog: [],
-    routeInfo: []
+    routeInfo: [],
+    areaComments: [],
+    areaComment: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -73,6 +75,12 @@ export default new Vuex.Store({
     },
     SET_WEATHER_INFO(state, weather) {
       state.weatherInfo = weather;
+    },
+    SET_AREA_COMMENTS(state, areaComments) {
+      state.areaComments = areaComments;
+    },
+    SET_AREA_COMMENT(state, areaComment) {
+      state.areaComment = areaComment;
     }
   }
 })

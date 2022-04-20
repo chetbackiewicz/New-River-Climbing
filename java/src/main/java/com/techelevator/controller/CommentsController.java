@@ -53,6 +53,4 @@ public class CommentsController {
     public RouteComment addRouteComment(@RequestBody RouteComment routeComment) {
         return routeCommentDao.addRouteComment(routeComment);
     }
-
-
 }

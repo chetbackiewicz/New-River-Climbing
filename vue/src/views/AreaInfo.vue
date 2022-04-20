@@ -11,6 +11,9 @@
             <h3>List of Crags</h3>
             <crag-list />
         </div>
+    <div id='area-comments'>
+        <area-comments-list />
+    </div>
         <div class="center">
         <div class="form-input">
         <div class="preview">
@@ -40,13 +43,16 @@
 import areaService from "@/services/AreaService"
 import cragService from "@/services/CragService"
 import CragList from "@/components/CragList"
+import commentService from '@/services/CommentService'
+import AreaCommentsList from '@/components/AreaCommentsList.vue';
 import firebase from "firebase/compat/app"
 
 
 export default {
     name: 'area-info',
     components: {
-        CragList
+        CragList,
+        AreaCommentsList
     },
     data () {
       return {
@@ -78,6 +84,21 @@ export default {
             this.$store.commit('SET_CURRENT_AREA', areaName);
         })
         .catch(error => {
+         if (error.response) {
+           this.errorMsg = `Error returned from server.  Received ${error.response.status} ${error.response.statusText}`;
+         }
+         else if (error.request) {
+           this.errorMsg = 'Unable to connect to server';
+         }
+         else {
+           this.errorMsg = 'Unknown error';
+         }
+       });
+       commentService.getAreaComments(areaName)
+    .then(response => {
+        this.$store.commit('SET_AREA_COMMENTS', response.data);
+    })
+    .catch(error => {
          if (error.response) {
            this.errorMsg = `Error returned from server.  Received ${error.response.status} ${error.response.statusText}`;
          }
