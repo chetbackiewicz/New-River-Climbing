@@ -7,16 +7,25 @@ public class AreaComment {
     private int areaCommentId;
     @JsonProperty("area_id")
     private int areaId;
+    private String username;
     private String comment;
 
     public AreaComment() {
     }
 
-    public AreaComment (int areaId, String comment) {
+    public AreaComment (int areaId, String comment, String username) {
         this.areaId = areaId;
         this.comment = comment;
+        this.username = username;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public int getAreaCommentId() {
         return areaCommentId;

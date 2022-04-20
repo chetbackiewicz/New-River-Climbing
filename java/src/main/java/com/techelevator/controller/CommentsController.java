@@ -48,4 +48,9 @@ public class CommentsController {
     public List<RouteComment> getRouteCommentsByRouteName(@PathVariable String name) {
         return routeCommentDao.getRouteCommentsByRouteName(name);
     }
+
+    @RequestMapping(path = "/routes/{name}/comments", method = RequestMethod.POST)
+    public RouteComment addRouteComment(@RequestBody RouteComment routeComment) {
+        return routeCommentDao.addRouteComment(routeComment);
+    }
 }

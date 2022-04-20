@@ -7,13 +7,23 @@ public class RouteComment {
     private int routeCommentId;
     @JsonProperty("route_id")
     private int routeId;
+    private String username;
     private String comment;
 
     public RouteComment() {}
 
-    public RouteComment (int routeId, String comment) {
+    public RouteComment (int routeId, String comment, String username) {
         this.routeId = routeId;
         this.comment = comment;
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public int getRouteCommentId() {
