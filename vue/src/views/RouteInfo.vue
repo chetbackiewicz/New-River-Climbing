@@ -14,7 +14,7 @@
           </h3>
           </div>
           <div class="type">
-            <h3>
+            <h3 id="type">
             Type:
           </h3>
           <p id="type" v-if="$store.state.routeInfo.sport_trad == 'S'">Sport</p>
@@ -143,7 +143,7 @@ export default {
           }
         });
 
-    this.storageRef = firebase.storage().ref(`route/${this.routeName}`);
+    this.storageRef = firebase.storage().ref(`route/${this.$route.params.routeName}`);
           this.storageRef.listAll().then((res) => {
               res.items.forEach((imageRef) => {
                   imageRef.getDownloadURL().then((url) => {
@@ -182,7 +182,7 @@ export default {
   },
     submitFile() {
       console.log(this.$store.state.cragInfo.crag_name)
-      const storage = firebase.storage().ref().child(`route/${this.routeName}/${this.File.name}`).put(this.File);
+      const storage = firebase.storage().ref().child(`route/${this.$route.params.routeName}/${this.File.name}`).put(this.File);
       setTimeout(() => {
         storage.getDownloadURL().then((res) => (this.preview = res));
       }, 3000);
@@ -260,7 +260,7 @@ export default {
 }
 
 .type p {
-  padding-left: 0.5em;
+  padding-left: 0.0em;
 }
 
 .height {
@@ -269,7 +269,7 @@ export default {
 }
 
 .height p {
-  padding-left: 0.5em;
+  padding-left: 0.1em;
 }
 
 .protection {
@@ -279,7 +279,7 @@ export default {
 
 .bolts {
   padding-right: 0.5em;
-  padding-left: 0.5em;
+  padding-left: 0.0em;
 }
 
 .anchors {
@@ -288,6 +288,18 @@ export default {
 
 .route-description {
   display: block;
+}
+
+#height {
+  padding-right: .5rem;
+}
+
+#type {
+  padding-right: .5rem;
+}
+
+#protection {
+  padding-right: .5rem;
 }
 
 #climb-img {

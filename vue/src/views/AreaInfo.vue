@@ -128,7 +128,7 @@ export default {
       //       this.errorMsg = 'Unknown error';
       //     }
       //   });
-      this.storageRef = firebase.storage().ref(`area/${this.areaName}`);
+      this.storageRef = firebase.storage().ref(`area/${this.$route.params.areaName}`);
       console.log(this.storageRef);
       this.storageRef.listAll().then((res) => {
         console.log(res)
@@ -168,7 +168,7 @@ export default {
       },
       submitFile() {
         console.log(this.$store.state.cragInfo.crag_name)
-        const storage = firebase.storage().ref().child(`area/${this.areaName}/${this.File.name}`).put(this.File);
+        const storage = firebase.storage().ref().child(`area/${this.$route.params.areaName}/${this.File.name}`).put(this.File);
         setTimeout(() => {
           storage.getDownloadURL().then((res) => (this.preview = res));
         }, 3000);

@@ -42,7 +42,7 @@
         <div>
             <div id="image-list">
             </div>
-            <div id='creag-comments'>
+            <!-- <div id='crag-comments'>
             <div class="form-field">
                <textarea type="text" id="cragComments" placeholder="Write a comment" v-model="userComment.comment"></textarea>
           </div>
@@ -52,7 +52,7 @@
             <h2 v-if="userComment.length == 0 && isCommentsLoaded">No comments, be the first to post!</h2>
             <crag-comments-list v-else-if="isCommentsLoaded"/>
             <h2 v-else>Loading Public Comments...</h2>
-          </div>
+          </div> -->
         </div>
       </div>
   </div>
@@ -62,15 +62,15 @@
 import firebase from "firebase/compat/app"
 import RouteList from '@/components/RouteList'
 import routeService from '@/services/RouteService'
-import commentService from '@/services/CommentService'
-import CragCommentsList from '@/components/CragCommentsList.vue';
+// import commentService from '@/services/CommentService'
+// import CragCommentsList from '@/components/CragCommentsList.vue';
 
 
 export default {
     name: 'crag-information',
     components: {
         RouteList,
-        CragCommentsList
+        // CragCommentsList
 
     },
     data () {
@@ -80,13 +80,12 @@ export default {
         showingImages: false,
         cragName: "",
         storageRef: [],
-        userComment: {
-          username: "",
-          crag_id: null,
-          comment: "",
-        },
-        commentsLoaded: false,
-        // storageRef: []
+        // userComment: {
+        //   username: "",
+        //   crag_id: null,
+        //   comment: "",
+        // },
+        // commentsLoaded: false
         }
     },
     created() {
@@ -96,24 +95,24 @@ export default {
         .then(response => {
             this.$store.commit('SET_ROUTES', response.data);
         }),
-        commentService.getCragComments(this.cragName)
-      .then(response => {
-          this.$store.commit('SET_CRAG_COMMENTS', response.data);
-          console.log("comments loaded")
-          this.commentsLoaded = true;
-      })
-      .catch(error => {
-          if (error.response) {
-            this.errorMsg = `Error returned from server.  Received ${error.response.status} ${error.response.statusText}`;
-          }
-          else if (error.request) {
-            this.errorMsg = 'Unable to connect to server';
-          }
-          else {
-            this.errorMsg = 'Unknown error';
-          }
-        });
-        this.storageRef = firebase.storage().ref(`crag/${this.cragName}`);
+      //   commentService.getCragComments(this.cragName)
+      // .then(response => {
+      //     this.$store.commit('SET_CRAG_COMMENTS', response.data);
+      //     console.log("comments loaded")
+      //     this.commentsLoaded = true;
+      // })
+      // .catch(error => {
+      //     if (error.response) {
+      //       this.errorMsg = `Error returned from server.  Received ${error.response.status} ${error.response.statusText}`;
+      //     }
+      //     else if (error.request) {
+      //       this.errorMsg = 'Unable to connect to server';
+      //     }
+      //     else {
+      //       this.errorMsg = 'Unknown error';
+      //     }
+      //   });
+        this.storageRef = firebase.storage().ref(`crag/${this.$route.params.cragName}`);
           this.storageRef.listAll().then((res) => {
               res.items.forEach((imageRef) => {
                   imageRef.getDownloadURL().then((url) => {
@@ -126,9 +125,9 @@ export default {
           })
     }, 
     methods: {
-      getCragId() {
-          this.userComment.crag_id = this.$store.state.cragInfo.crag_id
-        },
+      // getCragId() {
+      //     this.userComment.crag_id = this.$store.state.cragInfo.crag_id
+      //   },
         getFile(event) {
         this.File = event.target.files[0];
         this.preview = null;
@@ -146,7 +145,7 @@ export default {
       },
       submitFile() {
         console.log(this.$store.state.cragInfo.crag_name)
-        const storage = firebase.storage().ref().child(`crag/${this.cragName}/${this.File.name}`).put(this.File);
+        const storage = firebase.storage().ref().child(`crag/${this.$route.params.cragName}/${this.File.name}`).put(this.File);
         setTimeout(() => {
           storage.getDownloadURL().then((res) => (this.preview = res));
         }, 3000);
@@ -170,22 +169,22 @@ export default {
           .innerHTML = '<img id="public-image" src=""/>';
           this.showingImages = !this.showingImages;
       },
-     postComment() {
-        commentService.addCragComment(this.$store.state.cragInfo.crag_name, this.userComment)
-        this.userComment.comment = "";
-        window.location.reload()
-      }
+    //  postComment() {
+    //     commentService.addCragComment(this.$store.state.cragInfo.crag_name, this.userComment)
+    //     this.userComment.comment = "";
+    //     window.location.reload()
+    //   }
     },
-    computed: {
-      isCommentsLoaded() {
-        return this.commentsLoaded;
-      }
-    }
+    // computed: {
+    //   isCommentsLoaded() {
+    //     return this.commentsLoaded;
+    //   }
+    // }
 }
 </script>
 
 <style>
-
+/* 
 #cragComments {
   width: 80vw;
   height: 100px;
@@ -217,7 +216,7 @@ export default {
 #postComment:hover {
   background-color: #008CBA;
   color: white;
-}
+} */
 
 .crag-name {
   background: rgba(0, 0, 0, 0.5);
