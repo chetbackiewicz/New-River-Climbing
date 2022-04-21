@@ -89,17 +89,6 @@ export default {
     font-family: 'Poppins', sans-serif;
 }
 
-#comments {
-  width: 90%;
-  height: 100px;
-  margin-top: 12px;
-  margin-bottom: 12px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-}
-
 #comments[type-text]:focus {
     border: 3px solid #555;
 }

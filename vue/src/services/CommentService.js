@@ -5,7 +5,7 @@ export default {
         return axios.get(`/areas/${areaName}/comments`);
     },
 
-    addAreaComment(areaName) {
-        return axios.post(`/areas/${areaName}/comments`);
+    addAreaComment(areaName, comment) {
+        return axios.post(`/areas/${areaName}/comments`, comment);
     }
 }

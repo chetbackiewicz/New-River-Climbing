@@ -11,9 +11,6 @@
             <h3>List of Crags</h3>
             <crag-list />
         </div>
-    <div id='area-comments'>
-        <area-comments-list />
-    </div>
         <div class="center">
         <div class="form-input">
         <div class="preview">
@@ -32,7 +29,18 @@
         </div>
         <div>
             <div id="image-list">
-            </div>
+          </div>
+          <div id='area-comments'>
+            <div class="form-field">
+               <textarea type="text" id="comments" placeholder="Write a comment" v-model="userComment.comment"></textarea>
+          </div>
+          <div class="postComment">
+              <input type="submit" id="postComment" v-on:click="postComment">
+          </div>
+            <h2 v-if="userComment.length == 0 && isCommentsLoaded">No comments, be the first to post!</h2>
+            <area-comments-list v-else-if="isCommentsLoaded"/>
+            <h2 v-else>Loading Public Comments...</h2>
+          </div>
         </div>
       </div>
     </div>
@@ -58,7 +66,13 @@ export default {
       return {
         isPic: false,
         allImages: [],
-        showingImages: false
+        showingImages: false,
+        userComment: {
+          username: this.$store.state.user.username,
+          area_id: this.$store.state.areaInfo.area_id,
+          comment: "",
+        },
+        commentsLoaded: false
       }
     },
     created() {
@@ -94,21 +108,22 @@ export default {
            this.errorMsg = 'Unknown error';
          }
        });
-       commentService.getAreaComments(areaName)
-    .then(response => {
-        this.$store.commit('SET_AREA_COMMENTS', response.data);
-    })
-    .catch(error => {
-         if (error.response) {
-           this.errorMsg = `Error returned from server.  Received ${error.response.status} ${error.response.statusText}`;
-         }
-         else if (error.request) {
-           this.errorMsg = 'Unable to connect to server';
-         }
-         else {
-           this.errorMsg = 'Unknown error';
-         }
-       });
+      commentService.getAreaComments(areaName)
+      .then(response => {
+          this.$store.commit('SET_AREA_COMMENTS', response.data);
+          this.commentsLoaded = true;
+      })
+      .catch(error => {
+          if (error.response) {
+            this.errorMsg = `Error returned from server.  Received ${error.response.status} ${error.response.statusText}`;
+          }
+          else if (error.request) {
+            this.errorMsg = 'Unable to connect to server';
+          }
+          else {
+            this.errorMsg = 'Unknown error';
+          }
+        });
        let storageRef = firebase.storage().ref(`area/${this.$store.state.areaInfo.area_name}`);
           storageRef.listAll().then((res) => {
               res.items.forEach((imageRef) => {
@@ -162,12 +177,37 @@ export default {
           document.getElementById('image-list')
           .innerHTML = '<img id="public-image" src=""/>';
           this.showingImages = !this.showingImages;
+      },
+      postComment() {
+        commentService.addAreaComment(this.$store.state.areaInfo.area_name, this.userComment)
+        this.userComment.comment = "";
+        window.location.reload()
+
+      }
+    },
+    computed: {
+      isCommentsLoaded() {
+        return this.commentsLoaded;
       }
     }
 }
 </script>
 
 <style>
+
+#comments {
+  width: 80vw;
+  height: 100px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
 
   .area-name {
     background: rgba(0, 0, 0, 0.5);
@@ -253,6 +293,25 @@ export default {
   color: white;
 }
 
+
+#postComment {
+  border: none;
+  color: black;
+  border-radius: 25px;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border: 1px solid grey;
+}
+
+#postComment:hover {
+  background-color: #008CBA;
+  color: white;
+}
 
 
 </style>

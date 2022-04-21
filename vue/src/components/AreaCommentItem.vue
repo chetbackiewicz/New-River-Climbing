@@ -1,5 +1,6 @@
 <template>
   <div id="area-comment-item">
+    
       <h3>{{areaComment.username}}</h3>
       <h3>{{areaComment.comment}}</h3>
   </div>
