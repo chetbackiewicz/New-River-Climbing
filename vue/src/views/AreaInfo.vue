@@ -32,7 +32,7 @@
           </div>
           <div id='area-comments'>
             <div class="form-field">
-               <textarea type="text" id="comments" placeholder="Write a comment" v-model="userComment.comment"></textarea>
+               <textarea type="text" id="areaComments" placeholder="Write a comment" v-model="userComment.comment"></textarea>
           </div>
           <div class="postComment">
               <input type="submit" id="postComment" v-on:click="postComment">
@@ -72,12 +72,14 @@ export default {
           area_id: this.$store.state.areaInfo.area_id,
           comment: "",
         },
-        commentsLoaded: false
+        commentsLoaded: false,
+        areaName: "",
+        storageRef: []
       }
     },
     created() {
-        const areaName = this.$route.params.areaName;
-        areaService.getAreaInformationByName(areaName)
+         this.areaName = this.$route.params.areaName;
+        areaService.getAreaInformationByName(this.areaName)
         .then(response => {
             this.$store.commit('SET_AREA_INFO', response.data);
         })
@@ -92,10 +94,10 @@ export default {
            this.errorMsg = 'Unknown error';
          }
        });
-        cragService.getCragsByAreaName(areaName)
+        cragService.getCragsByAreaName(this.areaName)
         .then(response => {
             this.$store.commit('SET_CRAGS', response.data);
-            this.$store.commit('SET_CURRENT_AREA', areaName);
+            this.$store.commit('SET_CURRENT_AREA', this.areaName);
         })
         .catch(error => {
          if (error.response) {
@@ -108,9 +110,10 @@ export default {
            this.errorMsg = 'Unknown error';
          }
        });
-      commentService.getAreaComments(areaName)
+      commentService.getAreaComments(this.areaName)
       .then(response => {
           this.$store.commit('SET_AREA_COMMENTS', response.data);
+          console.log("comments loaded")
           this.commentsLoaded = true;
       })
       .catch(error => {
@@ -124,13 +127,16 @@ export default {
             this.errorMsg = 'Unknown error';
           }
         });
-       let storageRef = firebase.storage().ref(`area/${this.$store.state.areaInfo.area_name}`);
-          storageRef.listAll().then((res) => {
-              res.items.forEach((imageRef) => {
-                  imageRef.getDownloadURL().then((url) => {
-                    this.allImages = [...this.allImages, url];
-                  })
+      this.storageRef = firebase.storage().ref(`area/${this.areaName}`);
+      console.log(this.storageRef);
+      this.storageRef.listAll().then((res) => {
+        console.log(res)
+          res.items.forEach((imageRef) => {
+              imageRef.getDownloadURL().then((url) => {
+                this.allImages = [...this.allImages, url];
+                console.log(this.allImages);
               })
+          })
           })
           .catch((err) => {
               console.log(err)
@@ -154,7 +160,7 @@ export default {
       },
       submitFile() {
         console.log(this.$store.state.cragInfo.crag_name)
-        const storage = firebase.storage().ref().child(`area/${this.$store.state.areaInfo.area_name}/${this.File.name}`).put(this.File);
+        const storage = firebase.storage().ref().child(`area/${this.areaName}/${this.File.name}`).put(this.File);
         setTimeout(() => {
           storage.getDownloadURL().then((res) => (this.preview = res));
         }, 3000);
@@ -181,8 +187,7 @@ export default {
       postComment() {
         commentService.addAreaComment(this.$store.state.areaInfo.area_name, this.userComment)
         this.userComment.comment = "";
-        window.location.reload()
-
+        this.commentsLoaded = true;
       }
     },
     computed: {
@@ -195,7 +200,7 @@ export default {
 
 <style>
 
-#comments {
+#areaComments {
   width: 80vw;
   height: 100px;
   margin-top: 12px;

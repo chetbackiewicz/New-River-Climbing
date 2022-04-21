@@ -17,17 +17,17 @@
             <h3>
             Type:
           </h3>
-          <p v-if="$store.state.routeInfo.sport_trad == 'S'">Sport</p>
+          <p id="type" v-if="$store.state.routeInfo.sport_trad == 'S'">Sport</p>
           <p v-else>Trad</p>
           </div>
           <div class="height">
-            <h3>
+            <h3 id="height">
             Height:
           </h3>
           <p>{{$store.state.routeInfo.height}} ft</p>
           </div>
           <div class="protection">
-            <h3>Protection:</h3>
+            <h3 id="protection">Protection:</h3>
             <p class="bolts">{{$store.state.routeInfo.bolt_count}} bolts,</p>
             <p v-if="$store.state.routeInfo.has_anchors == true" class="anchors">bolt anchors</p>
             <p v-else>No Anchors</p>
@@ -89,7 +89,9 @@ export default {
       return {
         isPic: false,
         allImages: [],
-        showingImages: false
+        showingImages: false,
+        routeName: "",
+        storageRef: []
         }
     },
   computed: {
@@ -101,14 +103,14 @@ export default {
   created() {
     // const areaName = this.$route.params.areaName;
     // const cragName = this.$route.params.cragName;
-    const routeName = this.$route.params.routeName;
-    routeService.getRoute(routeName)
+    this.routeName = this.$route.params.routeName;
+    routeService.getRoute(this.routeName)
     .then(response => {
       this.$store.commit('SET_ROUTE_INFO', response.data);
     })
 
-    let storageRef = firebase.storage().ref(`route/${this.$store.state.routeInfo.route_name}`);
-          storageRef.listAll().then((res) => {
+    this.storageRef = firebase.storage().ref(`route/${this.routeName}`);
+          this.storageRef.listAll().then((res) => {
               res.items.forEach((imageRef) => {
                   imageRef.getDownloadURL().then((url) => {
                     this.allImages = [...this.allImages, url];
@@ -137,7 +139,7 @@ export default {
       },
       submitFile() {
         console.log(this.$store.state.cragInfo.crag_name)
-        const storage = firebase.storage().ref().child(`route/${this.$store.state.routeInfo.route_name}/${this.File.name}`).put(this.File);
+        const storage = firebase.storage().ref().child(`route/${this.routeName}/${this.File.name}`).put(this.File);
         setTimeout(() => {
           storage.getDownloadURL().then((res) => (this.preview = res));
         }, 3000);
@@ -166,6 +168,8 @@ export default {
 </script>
 
 <style>
+
+
 
 #route-name {
   background: rgba(0, 0, 0, 0.5);

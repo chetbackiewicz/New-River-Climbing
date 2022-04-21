@@ -61,18 +61,20 @@ export default {
       return {
         isPic: false,
         allImages: [],
-        showingImages: false
+        showingImages: false,
+        cragName: "",
+        storageRef: []
         }
     },
     created() {
         const areaName = this.$route.params.areaName;
-        const cragName = this.$route.params.cragName;
-        routeService.getRoutesByCragName(areaName, cragName)
+        this.cragName = this.$route.params.cragName;
+        routeService.getRoutesByCragName(areaName, this.cragName)
         .then(response => {
             this.$store.commit('SET_ROUTES', response.data);
         })
-        let storageRef = firebase.storage().ref(`crag/${this.$store.state.cragInfo.crag_name}`);
-          storageRef.listAll().then((res) => {
+        this.storageRef = firebase.storage().ref(`crag/${this.cragName}`);
+          this.storageRef.listAll().then((res) => {
               res.items.forEach((imageRef) => {
                   imageRef.getDownloadURL().then((url) => {
                     this.allImages = [...this.allImages, url];
@@ -101,7 +103,7 @@ export default {
       },
       submitFile() {
         console.log(this.$store.state.cragInfo.crag_name)
-        const storage = firebase.storage().ref().child(`crag/${this.$store.state.cragInfo.crag_name}/${this.File.name}`).put(this.File);
+        const storage = firebase.storage().ref().child(`crag/${this.cragName}/${this.File.name}`).put(this.File);
         setTimeout(() => {
           storage.getDownloadURL().then((res) => (this.preview = res));
         }, 3000);

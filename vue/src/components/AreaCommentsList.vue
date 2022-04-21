@@ -1,6 +1,6 @@
 <template>
   <div id="area-comment-list">
-      <p v-if="areaComments.length === 0">No Comments</p>
+      <!-- <p v-if="areaComments.length === 0">No Comments</p> -->
       <!-- <area-comment-item v-else v-for="areaComment in areaComments" 
       v-bind:key="areaComment.id" v-bind:areaComment="areaComment"/> -->
         <h2>Comments</h2>

@@ -89,6 +89,15 @@ export default {
     font-family: 'Poppins', sans-serif;
 }
 
+#comments {
+    width: 89%;
+    height: 3rem;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
 #comments[type-text]:focus {
     border: 3px solid #555;
 }
@@ -97,12 +106,14 @@ export default {
   width: 90%;
   height: 30px;
   margin-top: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 4px;
-  background-color: #f8f8f8;
+  background-color: white;
   resize: none;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 #date-sent {
@@ -113,7 +124,9 @@ export default {
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 4px;
-  background-color: #f8f8f8;
+  background-color: white;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
   resize: none;
 }
 
