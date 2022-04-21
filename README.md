@@ -1,5 +1,3 @@
-# Final Capstone
+# New River Climbing
 
-This directory contains all of the starter projects for the final capstone. The Vue starter project works with both the Java and .NET backend projects with a single configuration update that you can read about in the README.
-
-Each project contains instructions that provides information about the starting code and explains how to get started with the final capstone project.
+This application aims to help rock climbers plan climbs in the New River Gorge, and interact with the community online.  Utilizes Postgresql for a database, Firebase storage for image storage, Java Spring Boot for backend services, Vue.js for the Front end, and leverages google maps API and open weather map API for up-to-date information on the area.
