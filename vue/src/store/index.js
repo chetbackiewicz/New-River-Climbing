@@ -30,7 +30,8 @@ export default new Vuex.Store({
     activityLog: [],
     routeInfo: [],
     areaComments: [],
-    areaComment: []
+    cragComments: [],
+    routeComments: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -79,8 +80,11 @@ export default new Vuex.Store({
     SET_AREA_COMMENTS(state, areaComments) {
       state.areaComments = areaComments;
     },
-    SET_AREA_COMMENT(state, areaComment) {
-      state.areaComment = areaComment;
-    }
+    SET_CRAG_COMMENTS(state, cragComments) {
+      state.cragComments = cragComments;
+    },
+    SET_ROUTE_COMMENTS(state, routeComments) {
+      state.routeComments = routeComments;
+    },
   }
 })

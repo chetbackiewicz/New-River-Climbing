@@ -1,10 +1,10 @@
 <template>
-  <div id="area-comment-list">
+  <div id="route-comment-list">
       <!-- <p v-if="areaComments.length === 0">No Comments</p> -->
       <!-- <area-comment-item v-else v-for="areaComment in areaComments" 
       v-bind:key="areaComment.id" v-bind:areaComment="areaComment"/> -->
         <h2>Comments</h2>
-        <div class="comment" v-for="comment in areaComments" v-bind:key="comment.area_comment_id">
+        <div class="comment" v-for="comment in routeComments" v-bind:key="comment.route_comment_id">
             <h3 id="comment">{{comment.comment}}</h3>
             <h5 class="tdbreak" id="username">-{{comment.username}}</h5>
         </div>
@@ -14,14 +14,14 @@
 <script>
 
 export default {
-    name: 'area-comments',
+    name: 'route-comments',
     data() {
         return {
-            areaComments: []
+            routeComments: []
         };
     },
     created() {
-        this.areaComments = this.$store.state.areaComments
+        this.routeComments = this.$store.state.routeComments
     }
 }
 </script>
@@ -32,7 +32,7 @@ export default {
   word-break: break-all
 }
 
-#area-comments-list {
+#route-comments-list {
     width: 80%;
 }
 

@@ -30,7 +30,7 @@
         <div>
             <div id="image-list">
           </div>
-          <div id='area-comments'>
+          <!-- <div id='area-comments'>
             <div class="form-field">
                <textarea type="text" id="areaComments" placeholder="Write a comment" v-model="userComment.comment"></textarea>
           </div>
@@ -40,7 +40,7 @@
             <h2 v-if="userComment.length == 0 && isCommentsLoaded">No comments, be the first to post!</h2>
             <area-comments-list v-else-if="isCommentsLoaded"/>
             <h2 v-else>Loading Public Comments...</h2>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -51,8 +51,8 @@
 import areaService from "@/services/AreaService"
 import cragService from "@/services/CragService"
 import CragList from "@/components/CragList"
-import commentService from '@/services/CommentService'
-import AreaCommentsList from '@/components/AreaCommentsList.vue';
+// import commentService from '@/services/CommentService'
+// import AreaCommentsList from '@/components/AreaCommentsList.vue';
 import firebase from "firebase/compat/app"
 
 
@@ -60,28 +60,29 @@ export default {
     name: 'area-info',
     components: {
         CragList,
-        AreaCommentsList
+        // AreaCommentsList
     },
     data () {
       return {
         isPic: false,
         allImages: [],
         showingImages: false,
-        userComment: {
-          username: this.$store.state.user.username,
-          area_id: this.$store.state.areaInfo.area_id,
-          comment: "",
-        },
-        commentsLoaded: false,
+        // userComment: {
+        //   username: "",
+        //   area_id: null,
+        //   comment: "",
+        // },
+        // commentsLoaded: false,
         areaName: "",
         storageRef: []
       }
     },
     created() {
-         this.areaName = this.$route.params.areaName;
+        this.areaName = this.$route.params.areaName;
         areaService.getAreaInformationByName(this.areaName)
         .then(response => {
             this.$store.commit('SET_AREA_INFO', response.data);
+            this.getAreaId();
         })
         .catch(error => {
          if (error.response) {
@@ -110,23 +111,23 @@ export default {
            this.errorMsg = 'Unknown error';
          }
        });
-      commentService.getAreaComments(this.areaName)
-      .then(response => {
-          this.$store.commit('SET_AREA_COMMENTS', response.data);
-          console.log("comments loaded")
-          this.commentsLoaded = true;
-      })
-      .catch(error => {
-          if (error.response) {
-            this.errorMsg = `Error returned from server.  Received ${error.response.status} ${error.response.statusText}`;
-          }
-          else if (error.request) {
-            this.errorMsg = 'Unable to connect to server';
-          }
-          else {
-            this.errorMsg = 'Unknown error';
-          }
-        });
+      // commentService.getAreaComments(this.areaName)
+      // .then(response => {
+      //     this.$store.commit('SET_AREA_COMMENTS', response.data);
+      //     console.log("comments loaded")
+      //     this.commentsLoaded = true;
+      // })
+      // .catch(error => {
+      //     if (error.response) {
+      //       this.errorMsg = `Error returned from server.  Received ${error.response.status} ${error.response.statusText}`;
+      //     }
+      //     else if (error.request) {
+      //       this.errorMsg = 'Unable to connect to server';
+      //     }
+      //     else {
+      //       this.errorMsg = 'Unknown error';
+      //     }
+      //   });
       this.storageRef = firebase.storage().ref(`area/${this.areaName}`);
       console.log(this.storageRef);
       this.storageRef.listAll().then((res) => {
@@ -141,8 +142,15 @@ export default {
           .catch((err) => {
               console.log(err)
           })
+
+        // this.userComment.username = this.$store.state.user.username,
+        // this.userComment.area_id = this.$store.state.areaInfo.area_id,
+        // console.log("areaInfo: " + this.userComment.username)
     },
     methods: {
+        // getAreaId() {
+        //   this.userComment.area_id = this.$store.state.areaInfo.area_id
+        // },
         getFile(event) {
         this.File = event.target.files[0];
         this.preview = null;
@@ -184,23 +192,24 @@ export default {
           .innerHTML = '<img id="public-image" src=""/>';
           this.showingImages = !this.showingImages;
       },
-      postComment() {
-        commentService.addAreaComment(this.$store.state.areaInfo.area_name, this.userComment)
-        this.userComment.comment = "";
-        this.commentsLoaded = true;
-      }
+      // postComment() {
+      //   commentService.addAreaComment(this.$store.state.areaInfo.area_name, this.userComment)
+      //   this.userComment.comment = "";
+      //   window.location.reload()
+      //   this.commentsLoaded = true;
+      // }
     },
-    computed: {
-      isCommentsLoaded() {
-        return this.commentsLoaded;
-      }
-    }
+    // computed: {
+    //   isCommentsLoaded() {
+    //     return this.commentsLoaded;
+    //   }
+    // }
 }
 </script>
 
 <style>
 
-#areaComments {
+/* #areaComments {
   width: 80vw;
   height: 100px;
   margin-top: 12px;
@@ -212,7 +221,7 @@ export default {
   font-family: 'Lato', sans-serif;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
-}
+} */
 
   .area-name {
     background: rgba(0, 0, 0, 0.5);
@@ -299,7 +308,7 @@ export default {
 }
 
 
-#postComment {
+/* #postComment {
   border: none;
   color: black;
   border-radius: 25px;
@@ -316,7 +325,7 @@ export default {
 #postComment:hover {
   background-color: #008CBA;
   color: white;
-}
+} */
 
 
 </style>

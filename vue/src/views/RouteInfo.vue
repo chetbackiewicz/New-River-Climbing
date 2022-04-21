@@ -66,7 +66,18 @@
         </div>
         <div>
             <div id="image-list">
-            </div>
+        </div>
+        <div id='route-comments'>
+            <div class="form-field">
+               <textarea type="text" id="routeComments" placeholder="Write a comment" v-model="userComment.comment"></textarea>
+          </div>
+          <div class="postComment">
+              <input type="submit" id="postComment" v-on:click="postComment">
+          </div>
+            <h2 v-if="this.$store.state.routeComments.length == 0 && isCommentsLoaded">No comments, be the first to post!</h2>
+            <route-comments-list v-else-if="isCommentsLoaded"/>
+            <h2 v-else>Loading Comments...</h2>
+          </div>
         </div>
       </div>
   </div>
@@ -77,13 +88,16 @@
 import firebase from "firebase/compat/app"
 import RouteItem from '@/components/RouteItem'
 import routeService from '@/services/RouteService'
+import commentService from '@/services/CommentService'
+import RouteCommentsList from '@/components/RouteCommentsList.vue';
 import LogForm from '@/components/LogForm'
 
 export default {
   name: 'route-info',
   components: {
     RouteItem,
-    LogForm
+    LogForm,
+    RouteCommentsList
   },
   data () {
       return {
@@ -91,15 +105,15 @@ export default {
         allImages: [],
         showingImages: false,
         routeName: "",
-        storageRef: []
+        storageRef: [],
+        userComment: {
+          username: this.$store.state.user.username,
+          route_id: null,
+          comment: "",
+        },
+        commentsLoaded: false,
         }
     },
-  computed: {
-    numberOfStars() {
-      return (this.$store.state.routeInfo.rating);
-    }
-
-  },
   created() {
     // const areaName = this.$route.params.areaName;
     // const cragName = this.$route.params.cragName;
@@ -107,7 +121,27 @@ export default {
     routeService.getRoute(this.routeName)
     .then(response => {
       this.$store.commit('SET_ROUTE_INFO', response.data);
+      this.getRouteId();
     })
+
+    commentService.getRouteComments(this.routeName)
+      .then(response => {
+        console.log(response.data)
+          this.$store.commit('SET_ROUTE_COMMENTS', response.data);
+          console.log("comments loaded")
+          this.commentsLoaded = true;
+      })
+      .catch(error => {
+          if (error.response) {
+            this.errorMsg = `Error returned from server.  Received ${error.response.status} ${error.response.statusText}`;
+          }
+          else if (error.request) {
+            this.errorMsg = 'Unable to connect to server';
+          }
+          else {
+            this.errorMsg = 'Unknown error';
+          }
+        });
 
     this.storageRef = firebase.storage().ref(`route/${this.routeName}`);
           this.storageRef.listAll().then((res) => {
@@ -122,49 +156,66 @@ export default {
           })
   },
   methods: {
-        getFile(event) {
-        this.File = event.target.files[0];
-        this.preview = null;
-        this.isPic = false;
-        if (
-          this.File.name.includes(".png") ||
-          this.File.name.includes(".jpg")
-        ) {
-          let src = URL.createObjectURL(event.target.files[0]);
-          let preview = document.getElementById("file-ip-1-preview");
-          preview.src = src;
-          preview.style.display = "block";
-          this.isPic = true;
-        }
-      },
-      submitFile() {
-        console.log(this.$store.state.cragInfo.crag_name)
-        const storage = firebase.storage().ref().child(`route/${this.routeName}/${this.File.name}`).put(this.File);
-        setTimeout(() => {
-          storage.getDownloadURL().then((res) => (this.preview = res));
-        }, 3000);
-        this.isPic = false;
-        let preview = document.getElementById("file-ip-1-preview");
-        preview.src = "";
-        alert("Image successfully submitted!\nIt will be added to this collection shortly\nHappy Climbing!");
-      },
-      displayImages() {
-          if (this.allImages.length > 0) {
-          document.getElementById('image-list')
-          .innerHTML = '<img id="public-image" height="240" width="240" src="' + this.allImages.join('"/><img id="public-image" height="240" width="240" src="') + '"/>';
-          } else {
-              document.getElementById('image-list')
-              .innerHTML = '<h3>No images available, upload your own!</h3>'
-          }
-          this.showingImages = !this.showingImages;
-      },
-      hideImages() {
-          document.getElementById('image-list')
-          .innerHTML = '<img id="public-image" src=""/>';
-          this.showingImages = !this.showingImages;
-      }
+    
+    getRouteId() {
+          this.userComment.route_id = this.$store.state.routeInfo.route_id
+    },
+    postComment() {
+    commentService.addRouteComment(this.userComment.route_id, this.userComment)
+    this.userComment.comment = "";
+    window.location.reload()
+  },
+    getFile(event) {
+    this.File = event.target.files[0];
+    this.preview = null;
+    this.isPic = false;
+    if (
+      this.File.name.includes(".png") ||
+      this.File.name.includes(".jpg")
+    ) {
+      let src = URL.createObjectURL(event.target.files[0]);
+      let preview = document.getElementById("file-ip-1-preview");
+      preview.src = src;
+      preview.style.display = "block";
+      this.isPic = true;
     }
-}
+  },
+    submitFile() {
+      console.log(this.$store.state.cragInfo.crag_name)
+      const storage = firebase.storage().ref().child(`route/${this.routeName}/${this.File.name}`).put(this.File);
+      setTimeout(() => {
+        storage.getDownloadURL().then((res) => (this.preview = res));
+      }, 3000);
+      this.isPic = false;
+      let preview = document.getElementById("file-ip-1-preview");
+      preview.src = "";
+      alert("Image successfully submitted!\nIt will be added to this collection shortly\nHappy Climbing!");
+
+    },
+    displayImages() {
+        if (this.allImages.length > 0) {
+        document.getElementById('image-list')
+        .innerHTML = '<img id="public-image" height="240" width="240" src="' + this.allImages.join('"/><img id="public-image" height="240" width="240" src="') + '"/>';
+        } else {
+            document.getElementById('image-list')
+            .innerHTML = '<h3>No images available, upload your own!</h3>'
+        }
+        this.showingImages = !this.showingImages;
+    },
+    hideImages() {
+        document.getElementById('image-list')
+        .innerHTML = '<img id="public-image" src=""/>';
+        this.showingImages = !this.showingImages;
+    }
+  },
+  computed: {
+        isCommentsLoaded() {
+        return this.commentsLoaded;
+      },
+    numberOfStars() {
+      return (this.$store.state.routeInfo.rating);
+    }
+  }}
 </script>
 
 <style>
@@ -329,6 +380,40 @@ export default {
 
 
 #submit-image:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+
+#routeComments {
+  width: 80vw;
+  height: 100px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
+
+#postComment {
+  border: none;
+  color: black;
+  border-radius: 25px;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border: 1px solid grey;
+}
+
+#postComment:hover {
   background-color: #008CBA;
   color: white;
 }

@@ -1,10 +1,10 @@
 <template>
-  <div id="area-comment-list">
+  <div id="crag-comment-list">
       <!-- <p v-if="areaComments.length === 0">No Comments</p> -->
       <!-- <area-comment-item v-else v-for="areaComment in areaComments" 
       v-bind:key="areaComment.id" v-bind:areaComment="areaComment"/> -->
         <h2>Comments</h2>
-        <div class="comment" v-for="comment in areaComments" v-bind:key="comment.area_comment_id">
+        <div class="comment" v-for="comment in cragComments" v-bind:key="comment.crag_comment_id">
             <h3 id="comment">{{comment.comment}}</h3>
             <h5 class="tdbreak" id="username">-{{comment.username}}</h5>
         </div>
@@ -14,14 +14,14 @@
 <script>
 
 export default {
-    name: 'area-comments',
+    name: 'crag-comments',
     data() {
         return {
-            areaComments: []
+            cragComments: []
         };
     },
     created() {
-        this.areaComments = this.$store.state.areaComments
+        this.cragComments = this.$store.state.cragComments
     }
 }
 </script>
@@ -32,7 +32,7 @@ export default {
   word-break: break-all
 }
 
-#area-comments-list {
+#crag-comments-list {
     width: 80%;
 }
 
@@ -49,8 +49,5 @@ export default {
     padding-left: 0%;
 }
 
-#username {
-    /* margin-left: 2rem; */
-}
 
 </style>
