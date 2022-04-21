@@ -1,4 +1,4 @@
-# Capstone Starter Project
+# New River Climbing
 
 ## Database
 
